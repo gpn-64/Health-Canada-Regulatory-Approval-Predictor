@@ -13,6 +13,7 @@ models/
 # --- Local notes (not versioned) -------------------------------------
 plan.md
 docs/methode-pas-a-pas.md
+build.md
 
 # --- OS ------------------------------------------------------------------
 .DS_Store
