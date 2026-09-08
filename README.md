@@ -24,7 +24,8 @@ pip install -r requirements.txt
 
 python scripts/build_dataset.py         # raw .xlsx -> data/processed/submissions_clean.csv (+ QA summary)
 python scripts/train_models.py          # trains both models, writes metrics / SHAP / predictions
-python scripts/predict_under_review.py  # approval probability + estimated conclusion date, both with intervals, for the 168 in-flight submissions
+python scripts/calibrate_reprojection.py # temporal-holdout calibration for the late/overdue re-projection (writes reports/reprojection_calibration.json)
+python scripts/predict_under_review.py  # approval probability + estimated conclusion date, both with intervals, for the 168 in-flight submissions; re-projects late/overdue conclusion dates
 
 pytest                                  # data + pipeline checks
 ```

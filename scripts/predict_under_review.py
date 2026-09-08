@@ -26,6 +26,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src import config as C  # noqa: E402
+from src.bayesian import load_calibration, update_conclusion  # noqa: E402
 from src.data import load_under_review  # noqa: E402
 from src.features import build_features  # noqa: E402
 from src import models as M  # noqa: E402
@@ -72,6 +73,12 @@ def main() -> None:
         np.maximum(q.to_numpy(), elapsed[:, None]), columns=q.columns
     )
 
+    # --- Bayesian re-projection for submissions past their initial estimate ---
+    # For `late` / `overdue` rows the initial point prediction is stale: condition
+    # the regressor's predictive distribution on "still under review at `elapsed`"
+    # (left-truncated lognormal) and read an updated conclusion date off it.
+    bayes = update_conclusion(q, elapsed, accepted, status).reset_index(drop=True)
+
     # --- Approval probability: bootstrap interval ---
     cfg = IntervalConfig(n_boot=args.n_boot, level=args.level)
     print(f"Bootstrapping {cfg.n_boot} approval classifiers (level={cfg.level:.0%})...")
@@ -99,6 +106,12 @@ def main() -> None:
             "conclusion_date_latest": _date(q_floored["p90"].to_numpy()),
             "remaining_days_p50": np.maximum(q_floored["p50"].to_numpy() - elapsed, 0).round(),
             "status": status,
+            "bayes_conclusion_date": bayes["bayes_conclusion_date"],
+            "bayes_conclusion_earliest": bayes["bayes_conclusion_earliest"],
+            "bayes_conclusion_latest": bayes["bayes_conclusion_latest"],
+            "bayes_remaining_days_p50": bayes["bayes_remaining_days_p50"],
+            "bayes_update_applied": bayes["bayes_update_applied"],
+            "bayes_note": bayes["bayes_note"],
         }
     ).sort_values(["status", "est_conclusion_date"])
     out.to_csv(OUT_FILE, index=False)
@@ -129,6 +142,26 @@ def main() -> None:
     print("\n'late' = past the p50 estimate but within p90 · 'overdue' = past p90 "
           "(metadata does not explain the long review); for both, the date is reported\n"
           "as 'not before the snapshot' and only conclusion_date_latest is informative.")
+
+    reproj = out[out.bayes_update_applied][
+        ["status", "medicinal_ingredients", "company_name", "days_in_review_so_far",
+         "conclusion_date_latest", "bayes_conclusion_date", "bayes_conclusion_latest",
+         "bayes_remaining_days_p50", "bayes_note"]
+    ]
+    cal = load_calibration()
+    print(f"\nSurvival-conditioned re-projection for the {len(reproj)} late / overdue "
+          "submissions")
+    print("-" * 72)
+    print("  prior = predictive lognormal (p10/p50/p90); evidence = still under "
+          "review at\n  days_in_review_so_far; posterior = left-truncated lognormal.")
+    print(f"  temporal-holdout calibration: mu_shift(log)={cal[0]:+.3f}  "
+          f"sigma x{cal[1]:.2f}  "
+          f"({'reports/reprojection_calibration.json' if cal != (0.0, 1.0) else 'uncalibrated - run scripts/calibrate_reprojection.py'})")
+    n_beyond = int((reproj.bayes_note == "beyond_model").sum())
+    if n_beyond:
+        print(f"  {n_beyond} rows 'beyond_model': posterior exhausted, only "
+              "'not before the snapshot' asserted.")
+    print(reproj.head(40).to_string(index=False))
     print(f"\nWrote {OUT_FILE.relative_to(C.PROJECT_ROOT)}")
 
 
