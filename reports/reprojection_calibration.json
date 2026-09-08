@@ -1,0 +1,12 @@
+{
+  "pseudo_snapshot": "2022-12-31",
+  "n_train": 975,
+  "n_eval_in_flight": 128,
+  "n_late_or_overdue": 38,
+  "mu_shift_log": 0.0,
+  "sigma_inflation": 2.3,
+  "coverage_p10_p90_before": 0.395,
+  "coverage_p10_p90_after": 0.737,
+  "reaches_nominal_coverage": false,
+  "median_days_correction": 0.0
+}

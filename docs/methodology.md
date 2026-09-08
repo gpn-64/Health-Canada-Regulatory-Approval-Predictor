@@ -161,11 +161,55 @@ In the 2026-07 snapshot: 130 `on_track`, 20 `late`, 18 `overdue`.
 
 Output: `data/processed/under_review_forecast.csv` (`approval_proba`,
 `approval_ci_low/high`, `est_conclusion_date`, `conclusion_date_earliest/latest`,
-`remaining_days_p50`, `status`, `days_in_review_so_far`).
+`remaining_days_p50`, `status`, `days_in_review_so_far`, and the
+`bayes_conclusion_date` / `bayes_conclusion_earliest/latest` /
+`bayes_remaining_days_p50` / `bayes_update_applied` re-projection columns below).
 
-Not modelled here: right-censoring. A proper treatment (XGBoost `survival:aft`
-with the in-flight submissions as censored observations) is a V2 item; the flooring
-+ `status` flag is the V1 stopgap.
+**Bayesian re-projection (`late` / `overdue`).** For a submission that has already
+outlived its initial estimate, the point prediction is stale — by observation it
+is one of the slower reviews. `src/bayesian.py` treats the regressor's predictive
+distribution as a **prior**, conditions on the evidence *"still under review at
+`days_in_review_so_far`"*, and reads an updated median / p10 / p90 off the
+**posterior**. Same idea as the Aily Lab GRA deck (slide 44), made explicit:
+
+- prior: `review_days ~ LogNormal(μ, σ)`, with `μ = ln(p50)` and `σ` from the
+  p10–p90 spread in log space (matched to each row's predicted quantiles;
+  consistent with training on `log1p`);
+- evidence: `review_days > c`, `c` = days elapsed;
+- posterior: the left-truncated lognormal, which has a closed form, so the update
+  is a few `norm.cdf` / `norm.ppf` calls and extrapolates past the model's p90
+  (where the raw quantile grid runs out). Capped at 7 years (`MAX_REVIEW_DAYS`).
+
+**Calibration (`scripts/calibrate_reprojection.py`).** The prior is fit on
+completed submissions only, so it is optimistic on slow reviews. On a *temporal*
+holdout (train on submissions concluded by 2022-12-31; evaluate on the 128 that
+were in-flight then and have since concluded) the raw truncated-lognormal p10–p90
+band covers only **40 %** of the realised durations for the `late` / `overdue`
+subset. A flat shift on `μ` over-corrects the barely-late rows (they do conclude
+soon), so instead the location correction is left to the truncation — which is
+position-aware — and only `σ` is widened, by the factor that maximises holdout
+coverage (**×2.3**, → **74 %** coverage). Constants live in
+`reports/reprojection_calibration.json` and are read back by `src/bayesian.py`;
+re-run after a snapshot refresh. 74 % < 80 % nominal: the residual gap is the
+lognormal shape being too light-tailed for multi-year reviews — treat
+`bayes_conclusion_latest` as an informed bound, not a calibrated p90.
+
+`on_track` rows keep their initial (elapsed-floored) estimate. Output columns:
+`bayes_conclusion_date`, `bayes_conclusion_earliest/latest`,
+`bayes_remaining_days_p50`, `bayes_update_applied`, `bayes_note` (`initial` /
+`reprojected` / `beyond_model` — the last when the posterior is itself exhausted,
+i.e. elapsed past its own p90, where only "not before the snapshot" is asserted).
+In the 2026-07 snapshot the 38 `late` / `overdue` submissions are re-projected a
+median ~3 months past the snapshot.
+
+Still not modelled: right-censoring in *training* (the slowest reviews remain
+under-represented in the target). A proper treatment (parametric AFT / random
+survival forest / XGBoost `survival:aft`, with the in-flight submissions as
+censored observations) is the `feature/survival-analysis` line of work — its
+discrete-time competing-risks variant improved tail coverage and RMSE but lost
+~11 days of median AE to 30-day binning, so it was not adopted; a *continuous*
+AFT is the open follow-up. The re-projection here corrects at inference time but
+does not fix the fit.
 
 ## Differentiator — regulatory reading of the drivers
 
@@ -210,3 +254,4 @@ later expired or were withdrawn.
 | 2026-09-07 | Initial V1 modelling pipeline | GPien |
 | 2026-09-07 | Classifier switched to natural class balance (calibrated); added bootstrap approval intervals for in-flight submissions | GPien |
 | 2026-09-07 | Added quantile review-time models (p10/p50/p90) and estimated conclusion dates with intervals for in-flight submissions | GPien |
+| 2026-09-08 | Bayesian re-projection of the conclusion date for `late` / `overdue` submissions (left-truncated lognormal posterior); `src/bayesian.py` | GPien |
