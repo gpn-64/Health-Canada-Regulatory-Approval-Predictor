@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-09-07T19:16:06+00:00",
+  "n_train": 1212,
+  "n_test": 303,
+  "regressor": {
+    "note": "trained on log1p(review_days); metrics are natural-scale days",
+    "cv": {
+      "mae": 83.53026621097779,
+      "median_ae": 19.788375854492188,
+      "rmse": 185.52323346199367,
+      "r2": 0.11978596135093322
+    },
+    "quantile_interval_cv": {
+      "nominal_coverage": 0.8,
+      "empirical_coverage": 0.8143564356435643,
+      "median_interval_days": 257.02410888671875,
+      "coverage_actual_over_700d": 0.1
+    },
+    "test": {
+      "mae": 76.99185180664062,
+      "rmse": 245.66305541992188,
+      "median_ae": 19.083999633789062,
+      "r2": 0.12543290853500366,
+      "baseline_mae": 96.53465346534654,
+      "baseline_rmse": 263.16391759652856
+    },
+    "beats_baseline": true,
+    "top_features": [
+      {
+        "feature": "priority_review",
+        "mean_abs_shap": 0.10771777480840683
+      },
+      {
+        "feature": "covid19",
+        "mean_abs_shap": 0.053197212517261505
+      },
+      {
+        "feature": "therapeutic_area_freq",
+        "mean_abs_shap": 0.02344844676554203
+      },
+      {
+        "feature": "biosimilar",
+        "mean_abs_shap": 0.020230120047926903
+      },
+      {
+        "feature": "is_supplemental",
+        "mean_abs_shap": 0.01961464062333107
+      },
+      {
+        "feature": "accept_year",
+        "mean_abs_shap": 0.018941868096590042
+      },
+      {
+        "feature": "company_name_freq",
+        "mean_abs_shap": 0.01675989106297493
+      },
+      {
+        "feature": "noc_c",
+        "mean_abs_shap": 0.015387642197310925
+      }
+    ]
+  },
+  "classifier": {
+    "cv": {
+      "roc_auc": 0.68494319151114,
+      "pr_auc": 0.9542859479122352,
+      "brier": 0.07634484767913818,
+      "mean_predicted_proba": 0.9106200337409973,
+      "balanced_accuracy_at_flag": 0.6092838377290253
+    },
+    "test": {
+      "roc_auc": 0.6639128019994446,
+      "pr_auc": 0.9518719985645943,
+      "brier": 0.07624229788780212,
+      "flag_threshold": 0.9,
+      "balanced_accuracy_at_flag": 0.6524576506525965,
+      "rejection_recall": 0.6153846153846154,
+      "rejection_precision": 0.1568627450980392,
+      "confusion_matrix": {
+        "tn": 16,
+        "fp": 10,
+        "fn": 86,
+        "tp": 191
+      },
+      "baseline_roc_auc": 0.5,
+      "baseline_pr_auc": 0.9125412541254125,
+      "baseline_brier": 0.07844819135378885
+    },
+    "beats_baseline": true,
+    "top_features": [
+      {
+        "feature": "accept_year",
+        "mean_abs_shap": 0.2808564007282257
+      },
+      {
+        "feature": "is_supplemental",
+        "mean_abs_shap": 0.2700170874595642
+      },
+      {
+        "feature": "company_name_freq",
+        "mean_abs_shap": 0.25996795296669006
+      },
+      {
+        "feature": "priority_review",
+        "mean_abs_shap": 0.22837099432945251
+      },
+      {
+        "feature": "covid19",
+        "mean_abs_shap": 0.13450124859809875
+      },
+      {
+        "feature": "accept_month",
+        "mean_abs_shap": 0.1088014617562294
+      },
+      {
+        "feature": "therapeutic_area_freq",
+        "mean_abs_shap": 0.044864773750305176
+      },
+      {
+        "feature": "new_active_substance",
+        "mean_abs_shap": 0.04313666746020317
+      }
+    ]
+  }
+}

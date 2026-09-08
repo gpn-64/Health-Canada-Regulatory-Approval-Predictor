@@ -1,0 +1,169 @@
+submission_type,medicinal_ingredients,company_name,therapeutic_area,date_accepted,days_in_review_so_far,approval_proba,approval_ci_low,approval_ci_high,est_conclusion_date,conclusion_date_earliest,conclusion_date_latest,remaining_days_p50,status
+NDS,(18F)PSMA-1007,CENTRE FOR PROBE DEVELOPMENT AND COMMERCIALIZATION,Diagnostic radiopharmaceuticals,2025-09,333,0.938,0.897,0.966,2026-07-31,2026-07-31,2026-09-12,0.0,late
+NDS,Aflibercept,JAMP PHARMA CORPORATION,Ophthalmologicals,2025-07,395,0.96,0.937,0.979,2026-07-31,2026-07-31,2026-09-12,0.0,late
+NDS,"Betamethasone dipropionate, calcipotriol monohydrate",GLENMARK PHARMACEUTICALS CANADA INC.,Antipsoriatics,2025-07,395,0.946,0.917,0.968,2026-07-31,2026-07-31,2026-08-26,0.0,late
+NDS,Bimatoprost,LABORATOIRES THEA,Ophthalmologicals,2025-10,303,0.932,0.869,0.965,2026-07-31,2026-07-31,2026-11-17,0.0,late
+NDS,Camizestrant,ASTRAZENECA CANADA INC,Endocrine therapy,2025-10,303,0.958,0.921,0.979,2026-07-31,2026-07-31,2026-11-01,0.0,late
+NDS,"Carbidopa, levodopa",KNIGHT THERAPEUTICS INC.,Anti-parkinson drugs,2025-07,395,0.953,0.918,0.976,2026-07-31,2026-07-31,2026-08-05,0.0,late
+NDS,Gepirone hydrochloride,XEDITON PHARMACEUTICALS INC,Psychoanaleptics,2025-08,364,0.951,0.914,0.974,2026-07-31,2026-07-31,2026-08-14,0.0,late
+NDS,Linerixibat,GLAXOSMITHKLINE INC,Bile and liver therapy,2025-08,364,0.943,0.898,0.972,2026-07-31,2026-07-31,2026-08-21,0.0,late
+NDS,"mRNA encoding haemagglutinin of B/Victoria lineage, haemagglutinin of influenza A/H1N1, haemagglutinin of influenza A/H3N2, SARS-CoV-2 spike protein NTD-RBD subdomains",MODERNA BIOPHARMA CANADA CORPORATION,Vaccines,2026-01,211,0.838,0.663,0.942,2026-07-31,2026-07-31,2026-11-12,0.0,late
+NDS,Pertuzumab,"SHANGHAI HENLIUS BIOTECH, INC.",Antineoplastic agents,2025-05,456,0.928,0.878,0.966,2026-07-31,2026-07-31,2026-08-03,0.0,late
+NDS,Sotagliflozin,BGP PHARMA ULC,Drugs used in diabetes,2025-10,303,0.964,0.94,0.981,2026-07-31,2026-07-31,2026-09-16,0.0,late
+NDS,Testosterone undecanoate,VERITY PHARMACEUTICALS INC,Sex hormones and modulators of the genital system,2025-09,333,0.953,0.918,0.976,2026-07-31,2026-07-31,2026-09-17,0.0,late
+NDS,Trastuzumab,CURATEQ BIOLOGICS PRIVATE LIMITED,Antineoplastic agents,2025-09,333,0.941,0.893,0.973,2026-07-31,2026-07-31,2026-11-17,0.0,late
+SNDS,Benralizumab,ASTRAZENECA CANADA INC,Drugs for obstructive airway diseases,2025-10,303,0.967,0.943,0.985,2026-07-31,2026-07-31,2026-11-08,0.0,late
+SNDS,"Budesonide, formoterol fumarate dihydrate, glycopyrronium bromide",ASTRAZENECA CANADA INC,Drugs for obstructive airway diseases,2025-10,303,0.974,0.958,0.987,2026-07-31,2026-07-31,2026-11-04,0.0,late
+SNDS,"Coagulation factors II (human), IX (human), VII (human), X (human), proteins C, S",OCTAPHARMA PHARMAZEUTIKA PRODUKTIONSGES M B H,Antihemorrhagics,2025-10,303,0.961,0.934,0.98,2026-07-31,2026-07-31,2027-02-08,0.0,late
+SNDS,Durvalumab,ASTRAZENECA CANADA INC,Antineoplastic agents,2025-10,303,0.98,0.969,0.988,2026-07-31,2026-07-31,2026-10-12,0.0,late
+SNDS,Elinzanetant,BAYER INC,Other gynecologicals,2025-10,303,0.957,0.923,0.98,2026-07-31,2026-07-31,2026-11-15,0.0,late
+SNDS,Roflumilast,"ARCUTIS CANADA, INC.",Antipsoriatics,2025-10,303,0.954,0.922,0.977,2026-07-31,2026-07-31,2026-10-31,0.0,late
+SNDS,Tapinarof,ORGANON CANADA INC.,Antipsoriatics,2025-10,303,0.948,0.915,0.973,2026-07-31,2026-07-31,2026-11-10,0.0,late
+SNDS,Ipilimumab,BRISTOL-MYERS SQUIBB CANADA,Antineoplastic agents,2025-11,272,0.967,0.943,0.983,2026-08-25,2026-07-31,2026-10-25,25.0,on_track
+SNDS,Larotrectinib sulfate,BAYER INC,Antineoplastic agents,2025-11,272,0.966,0.942,0.983,2026-08-25,2026-07-31,2026-10-19,25.0,on_track
+SNDS,Nivolumab,BRISTOL-MYERS SQUIBB CANADA,Antineoplastic agents,2025-11,272,0.967,0.943,0.983,2026-08-25,2026-07-31,2026-10-25,25.0,on_track
+NDS,Octreotide hydrochloride,CAMURUS AB,Pituitary and hypothalamic hormones and analogues,2025-11,272,0.939,0.886,0.968,2026-08-26,2026-07-31,2026-11-06,26.0,on_track
+SNDS,"Drospirenone, estetrol monohydrate",SEARCHLIGHT PHARMA INC,Sex hormones and modulators of the genital system,2025-11,272,0.951,0.91,0.976,2026-08-26,2026-07-31,2026-11-08,26.0,on_track
+SNDS,Dupilumab,SANOFI-AVENTIS CANADA INC,Other dermatological preparations,2025-11,272,0.954,0.91,0.98,2026-08-26,2026-07-31,2026-11-17,26.0,on_track
+SNDS,"Fish oil, medium-chain triglycerides, olive oil, soybean oil",FRESENIUS KABI CANADA LTD,Blood substitutes and perfusion solutions,2025-11,272,0.96,0.924,0.981,2026-08-26,2026-07-31,2026-11-14,26.0,on_track
+NDS,Fenfluramine hydrochloride,UCB CANADA INC,Antiepileptics,2025-11,272,0.955,0.923,0.977,2026-08-27,2026-07-31,2026-10-29,27.0,on_track
+NDS,Metformin hydrochloride,ORIMED PHARMA INC,Drugs used in diabetes,2025-11,272,0.939,0.89,0.971,2026-08-27,2026-07-31,2026-10-19,27.0,on_track
+NDS,Varenicline,BGP PHARMA ULC,Ophthalmologicals,2025-11,272,0.953,0.917,0.979,2026-08-27,2026-07-31,2026-12-14,27.0,on_track
+SNDS,"Corynebacterium diphtheriae CRM-197 protein, pneumococcal conjugate serotype 33F, pneumococcal polysaccharide serotypes 3, 6A, 7F, 8, 9N, 10A, 11A, 12F, 15A, deOAc15B, 16F, 17F, 19A, 20A, 22F, 23A, 23B, 24F, 31, 35B",MERCK CANADA INC,Vaccines,2025-11,272,0.975,0.959,0.986,2026-08-27,2026-07-31,2027-02-08,27.0,on_track
+NDS,Zongertinib,BOEHRINGER INGELHEIM (CANADA) LTD LTEE,Antineoplastic agents,2026-01,211,0.968,0.947,0.982,2026-09-03,2026-08-18,2026-12-04,34.0,on_track
+SNDS,Epcoritamab,ABBVIE CORPORATION,Antineoplastic agents,2026-03,148,0.988,0.983,0.992,2026-09-03,2026-08-27,2026-10-21,34.0,on_track
+SNDS,Trastuzumab deruxtecan,ASTRAZENECA CANADA INC,Antineoplastic agents,2026-03,142,0.989,0.986,0.992,2026-09-10,2026-09-01,2026-10-29,41.0,on_track
+NDS,"Sodium benzoate, sodium phenylacetate",STERIMAX INC,Other alimentary tract and metabolism products,2026-03,152,0.975,0.953,0.988,2026-09-14,2026-08-11,2027-01-24,45.0,on_track
+SNDS,Acalabrutinib maleate,ASTRAZENECA CANADA INC,Antineoplastic agents,2025-12,242,0.972,0.947,0.987,2026-09-24,2026-08-12,2026-12-14,55.0,on_track
+SNDS,Belzutifan,MERCK CANADA INC,Antineoplastic agents,2025-12,242,0.972,0.949,0.986,2026-09-24,2026-08-12,2026-12-26,55.0,on_track
+SNDS,Daratumumab,JANSSEN INC,Antineoplastic agents,2025-12,242,0.969,0.943,0.985,2026-09-24,2026-08-10,2026-11-19,55.0,on_track
+NDS,Deuruxolitinib phosphate,"SUN PHARMACEUTICAL INDUSTRIES, INC.",Immunosuppressants,2025-12,242,0.926,0.873,0.965,2026-09-25,2026-08-09,2026-11-15,56.0,on_track
+SNDS,Aflibercept,BAYER INC,Ophthalmologicals,2025-12,242,0.96,0.924,0.983,2026-09-25,2026-08-16,2027-01-25,56.0,on_track
+SNDS,Iopromide,BAYER INC,Contrast media,2025-12,242,0.942,0.879,0.977,2026-09-25,2026-08-15,2027-02-07,56.0,on_track
+SNDS,Risankizumab,ABBVIE CORPORATION,Immunosuppressants,2025-12,242,0.97,0.944,0.985,2026-09-25,2026-08-17,2026-12-18,56.0,on_track
+SNDS,Tirzepatide,ELI LILLY CANADA INC,Drugs used in diabetes,2025-12,242,0.952,0.905,0.98,2026-09-25,2026-08-14,2026-11-21,56.0,on_track
+NDS,Aficamten,"CYTOKINETICS, INCORPORATED",Cardiac therapy,2025-12,242,0.927,0.86,0.966,2026-09-26,2026-08-08,2026-12-13,57.0,on_track
+NDS,Denecimig,NOVO NORDISK CANADA INC,Antihemorrhagics,2025-12,242,0.935,0.879,0.974,2026-09-26,2026-08-16,2026-11-16,57.0,on_track
+NDS,Donidalorsen sodium,THERATECHNOLOGIES INC,Other hematological agents,2025-12,242,0.942,0.894,0.969,2026-09-26,2026-08-15,2026-11-28,57.0,on_track
+NDS,Icotrokinra,JANSSEN INC,Immunosuppressants,2025-12,242,0.959,0.929,0.981,2026-09-26,2026-08-18,2026-10-29,57.0,on_track
+NDS,Nerandomilast,BOEHRINGER INGELHEIM (CANADA) LTD LTEE,Immunosuppressants,2025-12,242,0.96,0.931,0.979,2026-09-26,2026-08-20,2026-11-20,57.0,on_track
+NDS,Sarecycline,SEARCHLIGHT PHARMA INC,Antibacterials for systemic use,2025-12,242,0.937,0.887,0.97,2026-09-26,2026-08-06,2026-11-29,57.0,on_track
+SNDS,Setmelanotide acetate,"RHYTHM PHARMACEUTICALS, INC","Antiobesity preparations, excluding diet products",2026-03,144,0.973,0.953,0.986,2026-09-27,2026-08-31,2027-03-29,58.0,on_track
+NDS,Ranibizumab,LUPIN LIMITED,Ophthalmologicals,2025-12,242,0.918,0.849,0.959,2026-10-24,2026-08-04,2027-02-01,85.0,on_track
+NDS,Anagrelide hydrochloride,SEPTA PHARMACEUTICALS INC,Antineoplastic agents,2026-01,211,0.934,0.89,0.97,2026-10-27,2026-09-06,2027-02-01,88.0,on_track
+SNDS,Dupilumab,SANOFI-AVENTIS CANADA INC,Other dermatological preparations,2026-01,211,0.966,0.94,0.983,2026-10-27,2026-09-18,2027-02-25,88.0,on_track
+SNDS,Ocrelizumab,HOFFMANN-LA ROCHE LIMITED,Immunosuppressants,2026-01,211,0.973,0.955,0.985,2026-10-27,2026-09-18,2026-12-28,88.0,on_track
+SNDS,Pirtobrutinib,ELI LILLY CANADA INC,Antineoplastic agents,2026-01,211,0.969,0.943,0.984,2026-10-27,2026-09-12,2027-01-02,88.0,on_track
+SNDS,Respiratory syncytial virus prefusion F protein (RSVPreF3),GLAXOSMITHKLINE INC,Vaccines,2026-01,211,0.97,0.947,0.984,2026-10-27,2026-09-10,2026-12-29,88.0,on_track
+SNDS,Ritonavir,ABBVIE CORPORATION,Antivirals for systemic use,2026-01,211,0.974,0.954,0.986,2026-10-27,2026-09-16,2026-12-27,88.0,on_track
+SNDS,Sacituzumab govitecan,GILEAD SCIENCES CANADA INC,Antineoplastic agents,2026-01,211,0.973,0.955,0.985,2026-10-27,2026-09-14,2027-01-24,88.0,on_track
+SNDS,Sacituzumab govitecan,GILEAD SCIENCES CANADA INC,Antineoplastic agents,2026-01,211,0.973,0.955,0.985,2026-10-27,2026-09-14,2027-01-24,88.0,on_track
+SNDS,Semaglutide,NOVO NORDISK CANADA INC,Drugs used in diabetes,2026-01,211,0.968,0.942,0.984,2026-10-27,2026-09-17,2026-12-29,88.0,on_track
+NDS,Insulin efsitora alfa,ELI LILLY CANADA INC,Drugs used in diabetes,2026-01,211,0.96,0.93,0.979,2026-10-28,2026-09-20,2027-01-08,89.0,on_track
+NDS,Orforglipron calcium,ELI LILLY CANADA INC,Drugs used in diabetes,2026-01,211,0.96,0.93,0.979,2026-10-28,2026-09-20,2027-01-08,89.0,on_track
+NDS,"mRNA encoding haemagglutinin of B/Victoria lineage, influenza A/H1N1, influenza A/H3N2",MODERNA BIOPHARMA CANADA CORPORATION,Vaccines,2026-01,211,0.953,0.918,0.975,2026-10-29,2026-09-06,2026-11-29,90.0,on_track
+NDS,Perflutren protein-type A microspheres,GE HEALTHCARE CANADA INC,Contrast media,2026-01,211,0.945,0.907,0.973,2026-10-29,2026-09-08,2027-01-30,90.0,on_track
+NDS,Capsaicin,SEARCHLIGHT PHARMA INC,Anesthetics,2026-01,211,0.931,0.871,0.972,2026-10-30,2026-09-17,2027-03-11,91.0,on_track
+NDS,Spinosad,CIPHER PHARMACEUTICALS INC,"Ectoparasiticides, including scabicides, insecticides and repellents",2026-01,211,0.937,0.882,0.971,2026-11-10,2026-09-15,2027-03-03,102.0,on_track
+NDS,Bepirovirsen sodium,GLAXOSMITHKLINE INC,Antivirals for systemic use,2026-05,91,0.984,0.975,0.99,2026-11-12,2026-10-26,2027-01-07,104.0,on_track
+NDS,Pertuzumab,BIOSIMILAR COLLABORATIONS IRELAND LIMITED,Antineoplastic agents,2026-01,211,0.942,0.895,0.973,2026-11-17,2026-09-16,2027-04-10,109.0,on_track
+NDS,Rucaparib camsylate,PHARMAAND GMBH,Antineoplastic agents,2026-02,180,0.938,0.899,0.969,2026-11-27,2026-10-09,2027-02-13,119.0,on_track
+SNDS,Peginterferon alfa-2a,PHARMAAND GMBH,Immunostimulants,2026-02,180,0.945,0.899,0.97,2026-11-27,2026-10-08,2027-03-02,119.0,on_track
+SNDS,Tirzepatide,ELI LILLY CANADA INC,Drugs used in diabetes,2026-02,180,0.961,0.92,0.983,2026-11-27,2026-10-17,2027-01-29,119.0,on_track
+SNDS,Trastuzumab deruxtecan,ASTRAZENECA CANADA INC,Antineoplastic agents,2026-02,180,0.977,0.965,0.987,2026-11-27,2026-10-14,2027-02-27,119.0,on_track
+SNDS,Upadacitinib,ABBVIE CORPORATION,Immunosuppressants,2026-02,180,0.975,0.959,0.986,2026-11-27,2026-10-20,2027-03-02,119.0,on_track
+SNDS,Ustekinumab,JANSSEN INC,Immunosuppressants,2026-02,180,0.977,0.964,0.987,2026-11-27,2026-10-18,2027-01-31,119.0,on_track
+NDS,Acoltremon,ALCON CANADA INC,Ophthalmologicals,2026-02,180,0.942,0.901,0.968,2026-11-28,2026-10-10,2027-03-22,120.0,on_track
+NDS,Datopotamab deruxtecan,ASTRAZENECA CANADA INC,Antineoplastic agents,2026-02,180,0.967,0.944,0.981,2026-11-28,2026-10-17,2027-02-06,120.0,on_track
+NDS,Nitrofurantoin,PHARMARIS CANADA INC,Antibacterials for systemic use,2026-02,180,0.938,0.896,0.968,2026-11-28,2026-10-08,2027-03-07,120.0,on_track
+NDS,Trilaciclib dihydrochloride,PHARMACOSMOS A/S,All other therapeutic products,2026-02,180,0.945,0.91,0.969,2026-11-28,2026-10-10,2027-02-28,120.0,on_track
+SNDS,Dupilumab,SANOFI-AVENTIS CANADA INC,Other dermatological preparations,2026-02,180,0.963,0.934,0.982,2026-11-28,2026-10-18,2027-03-17,120.0,on_track
+SNDS,Roflumilast,"ARCUTIS CANADA, INC.",Antipsoriatics,2026-02,180,0.954,0.92,0.977,2026-11-28,2026-10-10,2027-03-14,120.0,on_track
+NDS,Finasteride,SEARCHLIGHT PHARMA INC,Other dermatological preparations,2026-02,180,0.943,0.899,0.971,2026-11-29,2026-10-08,2027-03-04,121.0,on_track
+NDS,Pegloticase,AMGEN CANADA INC,Antigout preparations,2026-02,180,0.921,0.843,0.964,2026-11-30,2026-10-24,2027-05-06,122.0,on_track
+NDS,Sibeprenlimab,OTSUKA PHARMACEUTICAL CO LTD,Immunosuppressants,2026-04,121,0.961,0.935,0.978,2026-12-06,2026-11-17,2027-03-16,128.0,on_track
+SNDS,Atezolizumab,HOFFMANN-LA ROCHE LIMITED,Antineoplastic agents,2026-06,60,0.985,0.977,0.991,2026-12-07,2026-11-23,2027-01-15,129.0,on_track
+SNDS,Baricitinib,ELI LILLY CANADA INC,Immunosuppressants,2026-03,152,0.963,0.933,0.981,2026-12-25,2026-11-14,2027-02-17,147.0,on_track
+NDS,"Cagrilintide, semaglutide",NOVO NORDISK CANADA INC,Drugs used in diabetes,2026-03,152,0.961,0.933,0.98,2026-12-26,2026-11-14,2027-01-29,148.0,on_track
+SNDS,Belzutifan,MERCK CANADA INC,Antineoplastic agents,2026-03,151,0.974,0.961,0.985,2026-12-26,2026-11-10,2027-03-01,148.0,on_track
+NDS,Nivolumab,AMGEN CANADA INC,Antineoplastic agents,2026-03,152,0.955,0.921,0.977,2026-12-27,2026-11-11,2027-07-31,149.0,on_track
+NDS,Givinostat hydrochloride,ITF THERAPEUTICS LLC,Other drugs for disorders of the musculo-skeletal system,2026-06,60,0.976,0.961,0.986,2026-12-28,2026-11-25,2027-07-18,150.0,on_track
+SNDS,Berotralstat hydrochloride,BIOCRYST PHARMACEUTICALS INC,Other hematological agents,2026-03,150,0.953,0.919,0.977,2026-12-28,2026-11-14,2027-03-12,150.0,on_track
+SNDS,Brexpiprazole,OTSUKA PHARMACEUTICAL CO LTD,Psycholeptics,2026-03,149,0.958,0.928,0.978,2026-12-29,2026-11-10,2027-03-15,151.0,on_track
+SNDS,Lisocabtagene maraleucel,BRISTOL-MYERS SQUIBB CANADA,Antineoplastic agents,2026-03,147,0.967,0.945,0.982,2026-12-30,2026-11-14,2027-02-21,152.0,on_track
+SNDS,Pembrolizumab,MERCK CANADA INC,Antineoplastic agents,2026-03,146,0.974,0.961,0.985,2026-12-31,2026-11-15,2027-03-06,153.0,on_track
+SNDS,Pirtobrutinib,ELI LILLY CANADA INC,Antineoplastic agents,2026-03,145,0.963,0.933,0.981,2027-01-01,2026-11-16,2027-02-23,154.0,on_track
+SNDS,Trastuzumab deruxtecan,ASTRAZENECA CANADA INC,Antineoplastic agents,2026-03,143,0.975,0.963,0.985,2027-01-03,2026-11-19,2027-03-21,156.0,on_track
+SNDS,Mavacamten,BRISTOL-MYERS SQUIBB CANADA,Cardiac therapy,2026-07,30,0.984,0.974,0.991,2027-01-06,2026-12-25,2027-03-19,159.0,on_track
+NDS,Nirogacestat hydrobromide,EMD SERONO A DIVISION OF EMD INC CANADA,Antineoplastic agents,2026-07,30,0.983,0.974,0.99,2027-01-08,2026-12-24,2027-03-08,161.0,on_track
+NDS,Omeprazole,XEOLAS PHARMACEUTICALS LIMITED,Drugs for acid related disorders,2026-03,152,0.916,0.862,0.957,2027-01-09,2026-11-10,2027-04-26,162.0,on_track
+SNDS,Enfortumab vedotin,PFIZER CANADA ULC,Antineoplastic agents,2026-04,121,0.972,0.954,0.984,2027-01-25,2026-12-09,2027-03-15,178.0,on_track
+SNDS,Lisocabtagene maraleucel,BRISTOL-MYERS SQUIBB CANADA,Antineoplastic agents,2026-04,121,0.968,0.948,0.982,2027-01-25,2026-12-09,2027-03-20,178.0,on_track
+SNDS,Obinutuzumab,HOFFMANN-LA ROCHE LIMITED,Antineoplastic agents,2026-04,121,0.968,0.948,0.982,2027-01-25,2026-12-09,2027-03-13,178.0,on_track
+SNDS,Pembrolizumab,MERCK CANADA INC,Antineoplastic agents,2026-04,121,0.974,0.962,0.986,2027-01-25,2026-12-09,2027-03-31,178.0,on_track
+SNDS,Teclistamab,JANSSEN INC,Antineoplastic agents,2026-04,121,0.976,0.963,0.986,2027-01-25,2026-12-09,2027-03-15,178.0,on_track
+SNDS,Efgartigimod alfa,ARGENX BV,Immunosuppressants,2026-04,121,0.949,0.912,0.974,2027-01-26,2026-12-07,2027-04-17,179.0,on_track
+SNDS,Inclisiran sodium,NOVARTIS PHARMACEUTICALS CANADA INC,Lipid modifying agents,2026-04,121,0.964,0.939,0.983,2027-01-26,2026-12-14,2027-04-17,179.0,on_track
+NDS,Gefurulimab,ALEXION PHARMA GMBH,Immunosuppressants,2026-04,121,0.959,0.935,0.977,2027-01-27,2026-12-10,2027-03-02,180.0,on_track
+NDS,"Haemagglutinin-strain A(H1N1),  haemagglutinin-strain A(H3N2), haemagglutinin-strain B",SEQIRUS UK LIMITED,Vaccines,2026-04,121,0.951,0.908,0.976,2027-01-27,2026-11-30,2027-03-13,180.0,on_track
+NDS,Methenamine hippurate,PHARMARIS CANADA INC,Antibacterials for systemic use,2026-04,121,0.93,0.879,0.965,2027-01-27,2026-12-06,2027-04-24,180.0,on_track
+NDS,Sebetralstat,PENDOPHARM DIVISION OF PHARMASCIENCE INC,Other hematological agents,2026-04,121,0.951,0.92,0.971,2027-01-27,2026-12-18,2027-04-14,180.0,on_track
+NDS,Bevacizumab,SANDOZ CANADA INCORPORATED,Antineoplastic agents,2026-04,121,0.953,0.917,0.976,2027-01-29,2026-12-10,2027-06-12,182.0,on_track
+NDS,Omalizumab,ADVANZ PHARMA CANADA INC.,Drugs for obstructive airway diseases,2026-04,121,0.934,0.896,0.965,2027-02-23,2026-12-03,2027-06-14,207.0,on_track
+SNDS,Pembrolizumab,MERCK CANADA INC,Antineoplastic agents,2026-05,91,0.973,0.958,0.985,2027-02-24,2027-01-08,2027-04-30,208.0,on_track
+SNDS,Talquetamab,JANSSEN INC,Antineoplastic agents,2026-05,91,0.974,0.96,0.985,2027-02-24,2027-01-08,2027-04-16,208.0,on_track
+SNDS,Zanidatamab,JAZZ PHARMACEUTICALS IRELAND LIMITED,Antineoplastic agents,2026-05,91,0.958,0.921,0.979,2027-02-24,2027-01-03,2027-04-15,208.0,on_track
+NDS,Perampanel,SUN PHARMA CANADA INC,Antiepileptics,2026-05,91,0.941,0.906,0.967,2027-02-25,2027-01-05,2027-05-24,209.0,on_track
+SNDS,Delgocitinib,LEO PHARMA INC,Other dermatological preparations,2026-05,91,0.957,0.934,0.977,2027-02-25,2027-01-15,2027-06-01,209.0,on_track
+NDS,Acoramidis hydrochloride,BRIDGEBIO EUROPE B.V.,Cardiac therapy,2026-05,91,0.939,0.897,0.968,2027-02-26,2027-01-14,2027-06-01,210.0,on_track
+NDS,Estetrol monohydrate,SEARCHLIGHT PHARMA INC,Sex hormones and modulators of the genital system,2026-05,91,0.948,0.919,0.972,2027-02-26,2027-01-03,2027-05-22,210.0,on_track
+NDS,Ianalumab,NOVARTIS PHARMACEUTICALS CANADA INC,Immunosuppressants,2026-05,91,0.962,0.936,0.98,2027-02-26,2027-01-17,2027-04-29,210.0,on_track
+NDS,Methylphenidate hydrochloride,LUPIN PHARMA CANADA LIMITED,Psychoanaleptics,2026-05,91,0.944,0.912,0.97,2027-02-26,2027-01-03,2027-05-22,210.0,on_track
+NDS,Regadenoson,ISOLOGIC INNOVATIVE RADIOPHARMACEUTICALS LTD.,Cardiac therapy,2026-05,91,0.931,0.883,0.965,2027-02-26,2027-01-09,2027-05-31,210.0,on_track
+NDS,Suzetrigine,VERTEX PHARMACEUTICALS (CANADA) INCORPORATED,Analgesics,2026-05,91,0.954,0.924,0.974,2027-02-26,2027-01-16,2027-06-10,210.0,on_track
+SNDS,Lutetium (177Lu) vipivotide tetraxetan,NOVARTIS PHARMACEUTICALS CANADA INC,Therapeutic radiopharmaceuticals,2026-05,91,0.952,0.909,0.978,2027-02-26,2027-01-16,2027-06-28,210.0,on_track
+NDS,Anitocabtagene autoleucel,GILEAD SCIENCES CANADA INC,Antineoplastic agents,2026-07,30,0.968,0.947,0.982,2027-03-04,2027-02-14,2027-06-03,216.0,on_track
+NDS,Zongertinib,BOEHRINGER INGELHEIM (CANADA) LTD LTEE,Antineoplastic agents,2026-07,30,0.964,0.94,0.98,2027-03-06,2027-02-12,2027-06-19,218.0,on_track
+SNDS,Ustekinumab,ACCORD HEALTHCARE INC,Immunosuppressants,2026-05,91,0.957,0.925,0.978,2027-03-10,2027-01-16,2027-05-08,222.0,on_track
+NDS,Cosibelimab,"SUN PHARMACEUTICAL INDUSTRIES, INC.",Antineoplastic agents,2026-06,60,0.937,0.902,0.966,2027-03-27,2027-02-09,2027-06-30,239.0,on_track
+SNDS,Somapacitan,NOVO NORDISK CANADA INC,Pituitary and hypothalamic hormones and analogues,2026-06,60,0.953,0.912,0.978,2027-03-27,2027-02-13,2027-06-16,239.0,on_track
+SNDS,Tucatinib,PFIZER CANADA ULC,Antineoplastic agents,2026-06,60,0.966,0.939,0.982,2027-03-27,2027-02-07,2027-05-14,239.0,on_track
+SNDS,Upadacitinib,ABBVIE CORPORATION,Immunosuppressants,2026-06,60,0.967,0.94,0.982,2027-03-27,2027-02-12,2027-05-15,239.0,on_track
+SNDS,Venetoclax,ABBVIE CORPORATION,Antineoplastic agents,2026-06,60,0.967,0.941,0.981,2027-03-27,2027-02-07,2027-05-14,239.0,on_track
+NDS,Mirdametinib,EMD SERONO A DIVISION OF EMD INC CANADA,Antineoplastic agents,2026-06,60,0.951,0.921,0.972,2027-03-28,2027-02-03,2027-05-01,240.0,on_track
+SNDS,Evolocumab,AMGEN CANADA INC,Lipid modifying agents,2026-06,60,0.959,0.929,0.98,2027-03-28,2027-02-13,2027-06-26,240.0,on_track
+NDS,Baxdrostat,ASTRAZENECA CANADA INC,Antihypertensives,2026-06,60,0.932,0.88,0.966,2027-03-29,2027-02-15,2027-06-30,241.0,on_track
+NDS,Centanafadine hydrochloride,OTSUKA PHARMACEUTICAL CO LTD,Psychoanaleptics,2026-06,60,0.947,0.91,0.97,2027-03-29,2027-02-06,2027-06-13,241.0,on_track
+NDS,Sutimlimab,RECORDATI RARE DISEASES CANADA INC,Immunosuppressants,2026-06,60,0.945,0.908,0.969,2027-03-29,2027-02-08,2027-05-20,241.0,on_track
+NDS,Filgrastim (r-metHuG-CSF) ,CURATEQ BIOLOGICS PRIVATE LIMITED,Immunostimulants,2026-06,60,0.942,0.896,0.971,2027-04-20,2027-02-12,2027-07-28,263.0,on_track
+SNDS,Etonogestrel,ORGANON CANADA INC.,Sex hormones and modulators of the genital system,2026-07,30,0.956,0.927,0.974,2027-04-26,2027-03-03,2027-07-15,269.0,on_track
+SNDS,Melatonin,NEURIM PHARMACEUTICALS LTD.,Psycholeptics,2026-07,30,0.955,0.927,0.974,2027-04-26,2027-03-03,2027-07-15,269.0,on_track
+SNDS,mRNA encoding SARS-CoV-2 spike protein NTD-RBD subdomains,MODERNA BIOPHARMA CANADA CORPORATION,Vaccines,2026-07,30,0.962,0.936,0.977,2027-04-26,2027-02-28,2027-06-10,269.0,on_track
+SNDS,Nipocalimab,JANSSEN INC,Immunosuppressants,2026-07,30,0.979,0.968,0.988,2027-04-26,2027-03-14,2027-06-14,269.0,on_track
+SNDS,Olezarsen sodium,THERATECHNOLOGIES INC,Lipid modifying agents,2026-07,30,0.961,0.935,0.977,2027-04-26,2027-03-11,2027-07-13,269.0,on_track
+SNDS,Talazoparib tosylate,PFIZER CANADA ULC,Antineoplastic agents,2026-07,30,0.976,0.961,0.986,2027-04-26,2027-03-09,2027-06-12,269.0,on_track
+SNDS,Upadacitinib,ABBVIE CORPORATION,Immunosuppressants,2026-07,30,0.976,0.962,0.986,2027-04-26,2027-03-14,2027-06-14,269.0,on_track
+SNDS,Maralixibat chloride,"MIRUM PHARMACEUTICALS, INC.",Bile and liver therapy,2026-07,30,0.964,0.936,0.982,2027-04-27,2027-03-11,2027-07-05,270.0,on_track
+NDS,Asundexian,BAYER INC,Antithrombotic agents,2026-07,30,0.958,0.933,0.979,2027-04-28,2027-03-17,2027-08-01,271.0,on_track
+NDS,Oveporexton,TAKEDA CANADA INC,Psychoanaleptics,2026-07,30,0.958,0.931,0.978,2027-04-28,2027-03-17,2027-08-11,271.0,on_track
+NDS,Povorcitinib phosphate,INCYTE CORPORATION,Immunosuppressants,2026-07,30,0.962,0.937,0.979,2027-04-28,2027-03-17,2027-06-16,271.0,on_track
+NDS,RelabotulinumtoxinA,IPSEN BIOPHARM LIMITED,Muscle relaxants,2026-07,30,0.953,0.924,0.974,2027-04-28,2027-03-07,2027-07-17,271.0,on_track
+NDS,Secukinumab,CELLTRION INC,Immunosuppressants,2026-07,30,0.952,0.913,0.977,2027-05-16,2027-03-08,2027-08-18,289.0,on_track
+NDS,Avacincaptad pegol,ASTELLAS PHARMA CANADA INC,Ophthalmologicals,2025-02,545,0.954,0.918,0.975,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,"Avibactam sodium, ceftazidime",STERIMAX INC,Antibacterials for systemic use,2025-08,364,0.977,0.959,0.989,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Axatilimab,INCYTE CORPORATION,Immunosuppressants,2025-01,576,0.96,0.928,0.979,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,"Bempedoic acid, ezetimibe",HLS THERAPEUTICS INC,Lipid modifying agents,2025-01,576,0.951,0.919,0.976,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Ceftaroline fosamil,STERIMAX INC,Antibacterials for systemic use,2025-07,395,0.943,0.903,0.969,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Cyclosporine,APOTEX INC,Ophthalmologicals,2025-01,576,0.962,0.936,0.978,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Denosumab,MANTRA PHARMA INC.,Drugs for treatment of bone diseases,2024-07,760,0.929,0.88,0.959,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Golimumab,ACCORD HEALTHCARE INC,Immunosuppressants,2025-05,456,0.948,0.918,0.973,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Imlunestrant tosylate,ELI LILLY CANADA INC,Antineoplastic agents,2025-02,545,0.959,0.93,0.978,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,"Latanoprost, timolol maleate",ORIMED PHARMA INC,Ophthalmologicals,2025-01,576,0.953,0.917,0.977,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Metformin hydrochloride,PHARMARIS CANADA INC,Drugs used in diabetes,2025-05,456,0.933,0.888,0.964,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Methohexital sodium,STERIMAX INC,Anesthetics,2024-09,698,0.916,0.847,0.963,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Pregabalin,ORIMED PHARMA INC,Analgesics,2025-01,576,0.933,0.872,0.97,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+NDS,Tolebrutinib,SANOFI-AVENTIS CANADA INC,Immunosuppressants,2025-08,364,0.962,0.941,0.98,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+SNDS,Adalimumab,JAMP PHARMA CORPORATION,Immunosuppressants,2024-09,698,0.96,0.931,0.98,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+SNDS,Alirocumab,SANOFI-AVENTIS CANADA INC,Lipid modifying agents,2024-12,607,0.938,0.861,0.981,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+SNDS,Guselkumab,JANSSEN INC,Immunosuppressants,2025-01,576,0.979,0.969,0.987,2026-07-31,2026-07-31,2026-07-31,0.0,overdue
+SNDS,Lurbinectedin,JAZZ PHARMACEUTICALS IRELAND LIMITED,Antineoplastic agents,2025-08,364,0.969,0.945,0.982,2026-07-31,2026-07-31,2026-07-31,0.0,overdue

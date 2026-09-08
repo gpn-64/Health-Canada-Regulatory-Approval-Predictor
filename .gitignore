@@ -1,0 +1,63 @@
+# --- Data --------------------------------------------------------------
+# Décommenter pour exclure les données brutes/traitées du versioning
+# (volumineuses ou sensibles). data/sample/ reste toujours suivi.
+# data/raw/*
+# data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# --- ML artifacts ------------------------------------------------------
+# Trained models are rebuilt by scripts/train_models.py — not versioned.
+models/
+
+# --- Local notes (not versioned) -------------------------------------
+plan.md
+docs/methode-pas-a-pas.md
+
+# --- OS ------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# --- Notebooks --------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- Power BI ----------------------------------------------------------------
+~$*.pbix
+*.pbix.bak
+
+# Power BI Project (.pbip) — cache & paramètres locaux, spécifiques à la machine
+**/.pbi/cache/
+**/.pbi/*.abf
+**/.pbi/localSettings.json
+**/*.pbip.bak
+
+# --- Tableau ----------------------------------------------------------------
+~$*.twbx
+*.twbx.bak
+*.tde
+*.hyper.lock
+
+# --- Secrets / config locale --------------------------------------------------
+.env
+.env.*
+!.env.example
+credentials.json
+*.key
+
+# --- Logs ----------------------------------------------------------------
+*.log
+
+# --- Éditeurs ----------------------------------------------------------------
+.vscode/
+.idea/
+*.swp

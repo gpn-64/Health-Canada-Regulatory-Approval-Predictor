@@ -1,0 +1,24 @@
+# Force la reconnaissance des langages SQL et Power Query M par GitHub Linguist
+*.sql linguist-language=SQL text
+*.pq linguist-language=M text
+*.m linguist-language=M text
+
+# Power BI Project (.pbip) — JSON/TMDL, texte diffable (contrairement au .pbix binaire)
+*.tmdl text
+*.pbip text
+*.pbir text
+
+# Fichiers binaires du dashboard — pas de diff textuel
+*.pbix binary
+*.twbx binary
+*.twb binary
+
+# Images — binaire
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Normalisation des fins de ligne
+* text=auto eol=lf
