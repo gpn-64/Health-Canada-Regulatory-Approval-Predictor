@@ -1,6 +1,6 @@
 # AFT continu (lognormal) vs régresseur — durée de revue
 
-_Généré le 2026-09-08T17:59:48+00:00_
+_Généré le 2026-09-08T18:05:41+00:00_
 
 ## Verdict
 

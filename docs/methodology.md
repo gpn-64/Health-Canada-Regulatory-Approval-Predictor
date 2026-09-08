@@ -24,7 +24,9 @@ modest and the results below say so plainly.
 | SHAP interpretation | `src/explain.py` | `reports/shap_*.csv`, `reports/figures/shap_*.png` |
 | Regulatory effect table | `scripts/train_models.py` | `reports/feature_effects.csv` |
 | Prediction export (incl. 168 in-flight submissions) | `scripts/train_models.py` | `data/processed/predictions.csv` |
-| In-flight forecast: approval probability (bootstrap interval) + estimated conclusion date (quantile interval) | `src/uncertainty.py`, `src/models.py` → `scripts/predict_under_review.py` | `data/processed/under_review_forecast.csv` |
+| Re-projection calibration (temporal holdout) | `src/bayesian.py` → `scripts/calibrate_reprojection.py` | `reports/reprojection_calibration.json` |
+| In-flight forecast: approval probability (bootstrap interval) + estimated conclusion date (quantile interval) + late/overdue re-projection | `src/uncertainty.py`, `src/models.py`, `src/bayesian.py` → `scripts/predict_under_review.py` | `data/processed/under_review_forecast.csv` |
+| Survival-analysis alternatives (explored, not adopted) | `src/survival.py`, `src/survival_aft.py` → `scripts/train_survival.py`, `scripts/compare_models.py`, `scripts/compare_aft.py` | `reports/comparison*.md`, `reports/survival/` |
 
 ## Data preparation
 
@@ -203,13 +205,18 @@ In the 2026-07 snapshot the 38 `late` / `overdue` submissions are re-projected a
 median ~3 months past the snapshot.
 
 Still not modelled: right-censoring in *training* (the slowest reviews remain
-under-represented in the target). A proper treatment (parametric AFT / random
-survival forest / XGBoost `survival:aft`, with the in-flight submissions as
-censored observations) is the `feature/survival-analysis` line of work — its
-discrete-time competing-risks variant improved tail coverage and RMSE but lost
-~11 days of median AE to 30-day binning, so it was not adopted; a *continuous*
-AFT is the open follow-up. The re-projection here corrects at inference time but
-does not fix the fit.
+under-represented in the target). The re-projection corrects at inference time
+but does not fix the fit. Two survival-analysis approaches that keep the in-flight
+submissions as censored observations were built and evaluated in
+[survival-analysis.md](survival-analysis.md): a discrete-time competing-risks
+model (`src/survival.py`) and a continuous parametric AFT (`src/survival_aft.py`).
+Both improve p10–p90 coverage under temporal drift (AFT log-normal 89 % vs the
+regressor's 74 % on the temporal holdout) but lose 10–20 days of median AE,
+because the gradient-boosted regressor reproduces the sharp 300-day
+service-standard spike (43 % of submissions) that neither smoother alternative
+matches. Neither is adopted as the primary model; both run end-to-end and are
+kept for the calibrated-interval use and for a future refresh with more censored
+data.
 
 ## Differentiator — regulatory reading of the drivers
 
@@ -254,4 +261,5 @@ later expired or were withdrawn.
 | 2026-09-07 | Initial V1 modelling pipeline | GPien |
 | 2026-09-07 | Classifier switched to natural class balance (calibrated); added bootstrap approval intervals for in-flight submissions | GPien |
 | 2026-09-07 | Added quantile review-time models (p10/p50/p90) and estimated conclusion dates with intervals for in-flight submissions | GPien |
-| 2026-09-08 | Bayesian re-projection of the conclusion date for `late` / `overdue` submissions (left-truncated lognormal posterior); `src/bayesian.py` | GPien |
+| 2026-09-08 | Survival-conditioned re-projection of the conclusion date for `late` / `overdue` submissions (left-truncated lognormal posterior, temporal-holdout calibrated); `src/bayesian.py`, `scripts/calibrate_reprojection.py` | GPien |
+| 2026-09-08 | Survival-analysis exploration merged as documented alternative: discrete-time competing risks (`src/survival.py`) + continuous parametric AFT (`src/survival_aft.py`); see `docs/survival-analysis.md`. Primary model unchanged. | GPien |

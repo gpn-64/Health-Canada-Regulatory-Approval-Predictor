@@ -1,10 +1,12 @@
 # Survival analysis — discrete-time competing risks
 
-Branch: `feature/survival-analysis`. This document records why the survival
-formulation was tried, the model that was built, and the comparison result
-against the regressor + classifier on `main`. See `reports/comparison.md` for
-the full numeric comparison and `reports/survival/metrics_survival.json` for
-the raw training/CV/test metrics.
+This document records why the survival formulation was tried, the two models
+that were built (discrete-time competing risks, and a continuous parametric
+AFT), and the comparison result against the regressor + classifier that remains
+the primary model. Merged into `main` as a documented alternative — not the
+default. See `reports/comparison.md` / `reports/comparison_aft.md` for the full
+numeric comparisons and `reports/survival/metrics_survival.json` for the raw
+training/CV/test metrics.
 
 ## Why survival at all
 
@@ -231,7 +233,8 @@ runnable alternatives.
 | `scripts/compare_aft.py` | Same-split and temporal-holdout comparison of the AFT vs the regressor; writes `reports/comparison_aft.md`. |
 | `tests/test_survival_aft.py` | Quantile monotonicity/bounds, `conditional_after` behaviour, constant-column drop. |
 
-No file from `main`'s original pipeline was modified except `requirements.txt`
-(added `lifelines>=0.29`, used only by the reference layer). `reports/metrics.json`,
-`models/*.joblib`, and `data/processed/*.csv` from the original pipeline are
-untouched and remain comparable.
+The original pipeline (`src/models.py`, `src/features.py`, `scripts/train_models.py`,
+`scripts/predict_under_review.py`) is unchanged by this work — the survival code
+is additive. `requirements.txt` gained `lifelines>=0.29` (discrete-model
+reference layer + the AFT). `reports/metrics.json`, `models/*.joblib`, and the
+primary `data/processed/*.csv` remain comparable.

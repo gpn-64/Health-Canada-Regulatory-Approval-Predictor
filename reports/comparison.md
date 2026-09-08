@@ -1,6 +1,6 @@
 # Comparaison régression/classification vs survie à risques concurrents
 
-_Généré le 2026-09-08T15:12:18+00:00_
+_Généré le 2026-09-08T18:05:36+00:00_
 
 ## Verdict
 
