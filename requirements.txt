@@ -7,3 +7,4 @@ openpyxl>=3.1
 matplotlib
 joblib
 pytest
+lifelines>=0.29
