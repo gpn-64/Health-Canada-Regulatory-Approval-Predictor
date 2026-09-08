@@ -182,6 +182,41 @@ in-flight cohort grows (more censored cases sharpens the survival model's
 advantage) or if the 30-day bin quantisation is refined (e.g. narrower bins
 away from the two spikes, at the cost of a larger person-period table).
 
+## Follow-up: continuous parametric AFT
+
+The suspicion was that the median-AE loss came from the 30-day bins, so a
+*continuous* AFT (`src/survival_aft.py`, lifelines `LogNormalAFTFitter` /
+Weibull / log-logistic) was tested the same way — completed rows as events,
+in-flight rows as right-censored — via `scripts/compare_aft.py`
+(`reports/comparison_aft.md`, `reports/survival/comparison_aft.json`).
+
+| Temporal holdout | MAE | Median AE | Coverage p10–p90 | Coverage >700 j |
+|---|---|---|---|---|
+| Regressor | 76.0 | **21.1** | 74 % | 0 % |
+| Discrete survival (30-day bins) | 79.4 | 24.5 | 60 % | 7 % |
+| AFT log-normal (continuous) | 75.4 | 39.2 | **89 %** | 0 % |
+| AFT log-logistic (continuous) | — | ~31 | — | — |
+
+The continuous AFT does **not** recover the median AE — it is worse than the
+binned model. Reason: 43 % of submissions conclude in the (270, 300]-day bin,
+exactly at the standard-review service target; the gradient-boosted regressor
+reproduces that spike, a linear-in-covariates AFT smears it into a smooth
+density (predicted median ~315–323 days vs the true 299). So the median-AE
+penalty is **the cost of leaving XGBoost's flexibility**, not a bin artifact.
+
+What the survival framing does buy, consistently across both variants: better
+p10–p90 interval coverage under temporal drift (the in-flight cohort stays in
+the fit as censored data instead of being dropped). The AFT log-normal's 89 %
+temporal-holdout coverage beats both the regressor (74 %) and the `baysian`
+branch's post-hoc re-projection (74 %) — so if a calibrated conclusion-date
+*interval* for in-flight submissions is the goal, an AFT interval is the better
+tool; for the *point* estimate, keep the regressor.
+
+**Verdict unchanged: stay on `main` for the point prediction.** Neither
+survival variant is adopted as the primary model. `src/survival_aft.py` and
+`scripts/compare_aft.py` are kept alongside the discrete model as documented,
+runnable alternatives.
+
 ## Files
 
 | File | Purpose |
@@ -192,6 +227,9 @@ away from the two spikes, at the cost of a larger person-period table).
 | `scripts/predict_under_review_survival.py` | Forecast for the 168 in-flight submissions, conditional on elapsed time; writes `data/processed/under_review_forecast_survival.csv`. |
 | `scripts/compare_models.py` | Same-split and temporal-holdout comparison; writes `reports/comparison.md` and `reports/survival/comparison.json`. |
 | `tests/test_survival.py` | Expansion correctness, no-leakage guarantees, `S+CIF=1`, monotonicity, conditional-median-≥-elapsed, and a KM cross-check. |
+| `src/survival_aft.py` | Continuous parametric AFT (lifelines) with the leak-safe preprocessor + z-scoring; `predict_quantiles` with `conditional_after`. |
+| `scripts/compare_aft.py` | Same-split and temporal-holdout comparison of the AFT vs the regressor; writes `reports/comparison_aft.md`. |
+| `tests/test_survival_aft.py` | Quantile monotonicity/bounds, `conditional_after` behaviour, constant-column drop. |
 
 No file from `main`'s original pipeline was modified except `requirements.txt`
 (added `lifelines>=0.29`, used only by the reference layer). `reports/metrics.json`,
