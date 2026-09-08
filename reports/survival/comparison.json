@@ -1,0 +1,93 @@
+{
+  "same_split": {
+    "n_train": 1212,
+    "n_test": 303,
+    "original": {
+      "duration": {
+        "mae": 76.99185225987199,
+        "median_ae": 19.083999633789062,
+        "rmse": 245.66306860687754
+      },
+      "interval": {
+        "empirical_coverage": 0.8283828382838284,
+        "median_width_days": 237.168701171875,
+        "coverage_actual_over_700d": 0.1111111111111111,
+        "n_over_700d": 9
+      },
+      "approval": {
+        "roc_auc": 0.6639128019994446,
+        "brier": 0.07624229788780212
+      }
+    },
+    "survival": {
+      "duration": {
+        "mae": 71.48514851485149,
+        "median_ae": 30.0,
+        "rmse": 146.90874112122052
+      },
+      "interval": {
+        "empirical_coverage": 0.7887788778877888,
+        "median_width_days": 120.0,
+        "coverage_actual_over_700d": 0.18181818181818182,
+        "n_over_700d": 11
+      },
+      "approval": {
+        "roc_auc": 0.6285059705637324,
+        "brier": 0.07879415513892889
+      }
+    },
+    "native_survival_metrics": {
+      "n_events": 303,
+      "n_censored": 168,
+      "original_regressor": {
+        "harrell_c": 0.7321783461505228,
+        "uno_c": 0.7083087371717294,
+        "time_dependent_auc_700d": 0.8319727891156462
+      },
+      "survival_model": {
+        "harrell_c": 0.7280739652639765,
+        "uno_c": 0.7036145465599012,
+        "time_dependent_auc_700d": 0.7557823129251701,
+        "brier_ipcw_700d": 0.06750720898513887
+      }
+    }
+  },
+  "temporal_holdout": {
+    "pseudo_snapshot": "2022-12-31",
+    "n_eval": 412,
+    "original": {
+      "n_train": 975,
+      "n_dropped_still_open_at_pseudo_snapshot": 128,
+      "duration": {
+        "mae": 76.01818238415764,
+        "median_ae": 21.090713500976562
+      },
+      "interval": {
+        "empirical_coverage": 0.7378640776699029,
+        "coverage_actual_over_700d": 0.0,
+        "n_over_700d": 14
+      },
+      "approval": {
+        "roc_auc": 0.5543725726530067,
+        "brier": 0.049486834555864334
+      }
+    },
+    "survival": {
+      "n_train_cases": 1103,
+      "n_censored": 128,
+      "duration": {
+        "mae": 79.35679611650485,
+        "median_ae": 24.5
+      },
+      "interval": {
+        "empirical_coverage": 0.5970873786407767,
+        "coverage_actual_over_700d": 0.07142857142857142,
+        "n_over_700d": 14
+      },
+      "approval": {
+        "roc_auc": 0.6064014999330388,
+        "brier": 0.04801609423060269
+      }
+    }
+  }
+}
