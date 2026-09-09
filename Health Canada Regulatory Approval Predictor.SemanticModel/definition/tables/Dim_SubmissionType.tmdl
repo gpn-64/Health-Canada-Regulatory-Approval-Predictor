@@ -1,0 +1,12 @@
+table Dim_SubmissionType
+	lineageTag: 96f29e7d-6a1f-40bf-befb-ddd8faf04871
+
+	column submission_type
+		lineageTag: c64928d2-da73-4d5b-bcbd-43e6d6f53d16
+		isNameInferred
+		sourceColumn: Fact_Completed[submission_type]
+
+	partition Dim_SubmissionType = calculated
+		mode: import
+		source = DISTINCT ( UNION ( DISTINCT ( Fact_Completed[submission_type] ), DISTINCT ( Fact_InFlight[submission_type] ) ) )
+

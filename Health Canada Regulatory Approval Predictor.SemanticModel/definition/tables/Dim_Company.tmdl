@@ -1,0 +1,12 @@
+table Dim_Company
+	lineageTag: 18cc1e14-80c1-40aa-b4cc-79b602766c75
+
+	column company_name
+		lineageTag: 06e85bbb-aa0b-40ea-b92b-a9d9f17450cc
+		isNameInferred
+		sourceColumn: Fact_Completed[company_name]
+
+	partition Dim_Company = calculated
+		mode: import
+		source = DISTINCT ( UNION ( DISTINCT ( Fact_Completed[company_name] ), DISTINCT ( Fact_InFlight[company_name] ) ) )
+

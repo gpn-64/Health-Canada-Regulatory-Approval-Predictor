@@ -1,0 +1,47 @@
+table Model_Card
+	lineageTag: e6f2b6de-c192-48c5-ad27-499857dbc04e
+
+	column metric
+		dataType: string
+		lineageTag: b97513b1-1bc4-4cfc-9212-e43970164bc1
+		sourceColumn: metric
+
+	column scope
+		dataType: string
+		lineageTag: 41e3dfa2-7a40-45ef-8b23-46f07e9b9c66
+		sourceColumn: scope
+
+	column label
+		dataType: string
+		lineageTag: 8d43f50c-f68e-45d7-921d-cb6709edc121
+		sourceColumn: label
+
+	column value
+		dataType: double
+		lineageTag: d123e877-322c-47f4-91da-7d622268215f
+		sourceColumn: value
+
+	column baseline
+		dataType: double
+		lineageTag: b6510119-3f1d-49e5-a3e5-f21481335f4c
+		sourceColumn: baseline
+
+	column unit
+		dataType: string
+		lineageTag: ba6a51f0-d3a9-43fa-bc79-68032fe77bac
+		sourceColumn: unit
+
+	column better
+		dataType: string
+		lineageTag: bc429bf2-55e3-4391-8f48-3985e07f3c42
+		sourceColumn: better
+
+	column page_order
+		dataType: int64
+		lineageTag: 72e5d0a1-dc2b-4b72-a7fe-82d3f9036dce
+		sourceColumn: page_order
+
+	partition Model_Card = m
+		mode: import
+		source = let S0 = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\reports\model_card.csv"),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]), P = Table.PromoteHeaders(S0,[PromoteAllScalars=true]), R = Table.ReplaceValue(P,"",null,Replacer.ReplaceValue,{"baseline"}), T = Table.TransformColumnTypes(R,{{"metric",type text},{"scope",type text},{"label",type text},{"value",type number},{"baseline",type number},{"unit",type text},{"better",type text},{"page_order",Int64.Type}}) in T
+

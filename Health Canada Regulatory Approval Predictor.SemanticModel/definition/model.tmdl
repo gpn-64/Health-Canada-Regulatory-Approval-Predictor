@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+ref table Fact_Completed
+ref table Fact_InFlight
+ref table Dim_Driver
+ref table Dim_Shap
+ref table Model_Card
+ref table Dim_Date
+ref table Dim_Status
+ref table Dim_SubmissionType
+ref table Dim_TherapeuticArea
+ref table Dim_Company
+ref table _Mesures
+
+ref cultureInfo en-US
+

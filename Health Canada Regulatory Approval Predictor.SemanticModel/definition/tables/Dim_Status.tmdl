@@ -1,0 +1,23 @@
+table Dim_Status
+	lineageTag: a3265dc0-e5a4-4b34-8284-a7b656a673d6
+
+	column status
+		lineageTag: a356fe7e-75b2-4f22-9a97-8d87fcc1cbc1
+		isNameInferred
+		sourceColumn: [status]
+
+	column status_order
+		lineageTag: 479de5f5-5c20-477b-861e-c92f30efd8e8
+		isNameInferred
+		sourceColumn: [status_order]
+
+	column status_label
+		lineageTag: 43193915-72ca-41dd-8d42-932fdc842bc5
+		isNameInferred
+		sourceColumn: [status_label]
+		sortByColumn: status_order
+
+	partition Dim_Status = calculated
+		mode: import
+		source = DATATABLE ( "status", STRING, "status_order", INTEGER, "status_label", STRING, { {"on_track",1,"Dans les temps"}, {"late",2,"En retard"}, {"overdue",3,"Dépassé"} } )
+

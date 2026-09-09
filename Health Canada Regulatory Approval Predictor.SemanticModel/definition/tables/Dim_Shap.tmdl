@@ -1,0 +1,22 @@
+table Dim_Shap
+	lineageTag: 8fadd245-3278-4f52-b2c7-fcdf65341643
+
+	column feature
+		dataType: string
+		lineageTag: b995d71f-bc20-4d2f-8a9e-b263cdc424ab
+		sourceColumn: feature
+
+	column mean_abs_shap
+		dataType: double
+		lineageTag: 2f704939-73de-43b0-b8e5-dbc161f969fa
+		sourceColumn: mean_abs_shap
+
+	column model
+		dataType: string
+		lineageTag: e0e4859c-2934-46c0-ab84-f07422db53bd
+		sourceColumn: model
+
+	partition Dim_Shap = m
+		mode: import
+		source = let f = (p,m) => Table.AddColumn(Table.PromoteHeaders(Csv.Document(File.Contents(p),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]),[PromoteAllScalars=true]),"model", each m, type text), R = f("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\reports\shap_regressor.csv","regressor"), C = f("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\reports\shap_classifier.csv","classifier"), U = Table.Combine({R,C}), T = Table.TransformColumnTypes(U,{{"feature",type text},{"mean_abs_shap",type number},{"model",type text}}) in T
+

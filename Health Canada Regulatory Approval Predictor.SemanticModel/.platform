@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Health Canada Regulatory Approval Predictor"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e49d204d-9fb3-484b-ae02-7f13dd1e65b6"
+  }
+}

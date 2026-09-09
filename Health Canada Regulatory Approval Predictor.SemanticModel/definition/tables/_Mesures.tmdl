@@ -1,0 +1,222 @@
+table _Mesures
+	lineageTag: 8bf439c8-821b-47f2-a2d4-21b676e782df
+
+	measure 'Nb soumissions complétées' = COUNTROWS ( Fact_Completed )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: 4088aae1-84d9-45f1-a3d1-99889b2a860d
+
+	measure 'Nb soumissions' = [Nb soumissions complétées]
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: aae2f228-91ae-449d-8464-13afbb177a15
+
+	measure 'Nb approuvées' = CALCULATE ( COUNTROWS ( Fact_Completed ), Fact_Completed[approved] = 1 )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: 64e01732-1119-4878-8161-d94eba6fece9
+
+	measure 'Taux d''approbation' = DIVIDE ( [Nb approuvées], [Nb soumissions complétées] )
+		formatString: 0.0%
+		displayFolder: 1 Volume & historique
+		lineageTag: e9235c7b-ef87-4929-a16d-027f822588fa
+
+	measure 'Délai médian (j)' = MEDIANX ( Fact_Completed, Fact_Completed[review_days] )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: 38b36a7d-ed84-4505-8400-f559dd7ce977
+
+	measure 'Délai p10 (j)' = PERCENTILEX.INC ( Fact_Completed, Fact_Completed[review_days], 0.10 )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: f4776b04-0249-42c5-bab3-f899479e7d9c
+
+	measure 'Délai p90 (j)' = PERCENTILEX.INC ( Fact_Completed, Fact_Completed[review_days], 0.90 )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: e39847fc-853c-4722-9e05-f29f9dce48ba
+
+	measure 'Délai moyen (j)' = AVERAGEX ( Fact_Completed, Fact_Completed[review_days] )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: b6769fce-0458-4465-b98e-7f1215fdfa32
+
+	measure 'Nb voie prioritaire' = CALCULATE ( COUNTROWS ( Fact_Completed ), Fact_Completed[priority_review] = 1 )
+		formatString: #,0
+		displayFolder: 1 Volume & historique
+		lineageTag: 73ad0e40-1a39-4043-bb97-ea5b5a8108f6
+
+	measure 'Taux d''approbation N-1' = CALCULATE ( [Taux d'approbation], DATEADD ( Dim_Date[Date], -1, YEAR ) )
+		formatString: 0.0%
+		displayFolder: 1 Volume & historique
+		lineageTag: b1976cbd-26c3-4d0f-8e52-d83983f0f367
+
+	measure 'Δ volume YoY' = VAR _cur = [Nb soumissions complétées] VAR _prev = CALCULATE ( [Nb soumissions complétées], DATEADD ( Dim_Date[Date], -1, YEAR ) ) RETURN DIVIDE ( _cur - _prev, _prev )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 1 Volume & historique
+		lineageTag: ccb207fc-6e93-4236-bbc1-2e1746165a60
+
+	measure 'Nb en cours' = COUNTROWS ( Fact_InFlight )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: e822de36-6a42-4c4d-8df0-79ad80fc3704
+
+	measure 'Nb on track' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[status] = "on_track" )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 0da1f549-7e0b-4dd9-87dc-a1a84208820b
+
+	measure 'Nb late' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[status] = "late" )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: d53b55fe-9cb8-4d8b-b5dd-6ae776849a1b
+
+	measure 'Nb overdue' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[status] = "overdue" )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 565bea09-4356-4eac-983e-7457fdfe6391
+
+	measure 'Nb en retard+' = [Nb late] + [Nb overdue]
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 76ce8dc8-611b-4e9e-b025-253447d86ac9
+
+	measure '% on track' = DIVIDE ( [Nb on track], [Nb en cours] )
+		formatString: 0.0%
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: d9ecedab-e4b3-48df-ae87-4b58ba614119
+
+	measure 'Approbations attendues (en cours)' = SUMX ( Fact_InFlight, Fact_InFlight[approval_proba] )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 401c39c4-f2a0-44a4-91cc-9a8782ef9e5a
+
+	measure 'P(approbation) médiane' = MEDIANX ( Fact_InFlight, Fact_InFlight[approval_proba] )
+		formatString: 0%
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 01a90bdd-9a47-4703-beec-536dbaf6b585
+
+	measure 'Nb signalées (proba < 0,90)' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[approval_proba] < 0.90 )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 1ade591c-fb7c-4e14-9dce-19b461ef094d
+
+	measure 'Largeur IC approb. (moy.)' = AVERAGEX ( Fact_InFlight, Fact_InFlight[approval_ci_width] )
+		formatString: 0.0%
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: e329c33b-59bb-4d8d-994e-f891797b29c2
+
+	measure 'Jours restants p50 (médiane)' = MEDIANX ( Fact_InFlight, Fact_InFlight[Jours restants affichés] )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 3c242d8b-b58f-45d9-be32-bceb2bb2661d
+
+	measure 'Jours en revue (médiane)' = MEDIANX ( Fact_InFlight, Fact_InFlight[days_in_review_so_far] )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: 7289debf-fa06-4865-84b6-6786083efd42
+
+	measure 'Nb re-projetés' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[bayes_update_applied] = TRUE () )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: a1fc511a-ec54-44af-808a-59c7491de000
+
+	measure 'Nb posterior épuisé' = CALCULATE ( COUNTROWS ( Fact_InFlight ), Fact_InFlight[bayes_note] = "beyond_model" )
+		formatString: #,0
+		displayFolder: 2 Portefeuille en cours
+		lineageTag: a9a3a474-1786-4274-8e54-91bdcbf919ac
+
+	measure 'MAE modèle' = MAXX ( FILTER ( Model_Card, Model_Card[metric] = "mae" ), Model_Card[value] )
+		formatString: #,0
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 38133f2c-a6d4-429b-8c66-a74694658023
+
+	measure 'MAE baseline' = MAXX ( FILTER ( Model_Card, Model_Card[metric] = "mae" ), Model_Card[baseline] )
+		formatString: #,0
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 43e38b29-7717-4ea2-be84-ae1376e0c5a5
+
+	measure ROC-AUC = MAXX ( FILTER ( Model_Card, Model_Card[metric] = "roc_auc" ), Model_Card[value] )
+		formatString: 0.00
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: d3837d82-66c6-4663-b2af-5605b08ddefc
+
+	measure 'MAE délai (live)' = AVERAGEX ( Fact_Completed, ABS ( Fact_Completed[actual_review_days] - Fact_Completed[predicted_review_days] ) )
+		formatString: #,0
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 1b272b51-44c2-4e6b-981e-e16cf771f2ab
+
+	measure 'Erreur médiane délai (live)' = MEDIANX ( Fact_Completed, ABS ( Fact_Completed[actual_review_days] - Fact_Completed[predicted_review_days] ) )
+		formatString: #,0
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: f1acbdff-588a-4268-ab97-ffcd151d5e1e
+
+	measure 'Couverture intervalle (live)' = DIVIDE ( CALCULATE ( COUNTROWS ( Fact_Completed ), Fact_Completed[in_p10_p90] = TRUE () ), COUNTROWS ( Fact_Completed ) )
+		formatString: 0.0%
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: b0aeba00-7f61-466c-aaf4-79d099cfa985
+
+	measure 'Probabilité moyenne prévue (live)' = AVERAGEX ( Fact_Completed, Fact_Completed[predicted_approval_proba] )
+		formatString: 0.0%
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 08e48995-e1af-4254-9234-1ac39281502a
+
+	measure 'Taux d''approbation observé (live)' = [Taux d'approbation]
+		formatString: 0.0%
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 1844b7f1-f2d6-4ad4-919c-e01ab20a84b6
+
+	measure 'Écart de calibration (live)' = [Probabilité moyenne prévue (live)] - [Taux d'approbation observé (live)]
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 3 Fiabilité du modèle
+		lineageTag: 11e0780f-e906-4ab9-8cff-4bc8927787d3
+
+	measure 'Δ délai médian (j)' = SUM ( Dim_Driver[delta_review_days] )
+		formatString: +0;-0;0
+		displayFolder: 4 Facteurs
+		lineageTag: c466c878-ddd6-438a-9ddb-7cbf2a0856e0
+
+	measure 'Taux approb. avec' = SUM ( Dim_Driver[approval_rate_with] )
+		formatString: 0.0%
+		displayFolder: 4 Facteurs
+		lineageTag: 70baa722-44e4-4844-ad3e-4c5c00d5dcb6
+
+	measure 'Taux approb. sans' = SUM ( Dim_Driver[approval_rate_without] )
+		formatString: 0.0%
+		displayFolder: 4 Facteurs
+		lineageTag: 165d5734-66e3-473d-a326-b46cd63aad26
+
+	measure 'Δ taux approbation' = SUM ( Dim_Driver[delta_approval_rate] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 4 Facteurs
+		lineageTag: edb36028-24c5-4f55-a430-a8814da9f648
+
+	measure 'Titre soumission sélectionnée' = SELECTEDVALUE ( Fact_InFlight[medicinal_ingredients], "—" ) & "  ·  " & SELECTEDVALUE ( Fact_InFlight[company_name], "" )
+		displayFolder: 5 Étiquettes & drill-through
+		lineageTag: fd45d239-5dc6-47d8-aeaf-675c24bddae0
+
+	measure 'Comparables — délai médian' = VAR _area = SELECTEDVALUE ( Fact_InFlight[therapeutic_area] ) VAR _type = SELECTEDVALUE ( Fact_InFlight[submission_type] ) RETURN CALCULATE ( [Délai médian (j)], REMOVEFILTERS ( Fact_Completed ), Fact_Completed[therapeutic_area] = _area, Fact_Completed[submission_type] = _type )
+		formatString: #,0
+		displayFolder: 5 Étiquettes & drill-through
+		lineageTag: 31dacbae-516b-4c5b-b1c0-7920e82c6f2d
+
+	measure 'Comparables — taux d''approbation' = VAR _area = SELECTEDVALUE ( Fact_InFlight[therapeutic_area] ) VAR _type = SELECTEDVALUE ( Fact_InFlight[submission_type] ) RETURN CALCULATE ( [Taux d'approbation], REMOVEFILTERS ( Fact_Completed ), Fact_Completed[therapeutic_area] = _area, Fact_Completed[submission_type] = _type )
+		formatString: 0.0%
+		displayFolder: 5 Étiquettes & drill-through
+		lineageTag: a18efe53-577c-4d0b-8335-85a67d68463c
+
+	measure 'Comparables — n' = VAR _area = SELECTEDVALUE ( Fact_InFlight[therapeutic_area] ) VAR _type = SELECTEDVALUE ( Fact_InFlight[submission_type] ) RETURN CALCULATE ( [Nb soumissions complétées], REMOVEFILTERS ( Fact_Completed ), Fact_Completed[therapeutic_area] = _area, Fact_Completed[submission_type] = _type )
+		formatString: #,0
+		displayFolder: 5 Étiquettes & drill-through
+		lineageTag: 3dc14123-135c-42d6-9c36-4d6328b44a6b
+
+	column _placeholder
+		isHidden
+		lineageTag: 9d329920-db47-404d-8e6f-5e8932abe69f
+		isNameInferred
+		sourceColumn: [_placeholder]
+
+	partition _Mesures = calculated
+		mode: import
+		source = ROW ( "_placeholder", BLANK() )
+

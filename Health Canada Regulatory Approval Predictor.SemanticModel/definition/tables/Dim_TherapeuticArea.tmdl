@@ -1,0 +1,12 @@
+table Dim_TherapeuticArea
+	lineageTag: 94353746-0c7e-4159-ae84-8e6cf622bfdd
+
+	column therapeutic_area
+		lineageTag: 341ed416-2395-434e-b2f3-161a7f904823
+		isNameInferred
+		sourceColumn: Fact_Completed[therapeutic_area]
+
+	partition Dim_TherapeuticArea = calculated
+		mode: import
+		source = DISTINCT ( UNION ( DISTINCT ( Fact_Completed[therapeutic_area] ), DISTINCT ( Fact_InFlight[therapeutic_area] ) ) )
+

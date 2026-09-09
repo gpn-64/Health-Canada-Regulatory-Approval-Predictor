@@ -1,0 +1,151 @@
+table Fact_InFlight
+	lineageTag: ef4777af-6fb9-49ec-8010-17ca274c91f0
+
+	column submission_type
+		dataType: string
+		lineageTag: b0b82826-2af4-4421-8d70-bfd146a7580d
+		sourceColumn: submission_type
+
+	column medicinal_ingredients
+		dataType: string
+		lineageTag: c96be0ff-6aad-446e-8145-d0557b0eeb1e
+		sourceColumn: medicinal_ingredients
+
+	column company_name
+		dataType: string
+		lineageTag: aea57261-4f7d-4d2f-97c4-129d04cb27bf
+		sourceColumn: company_name
+
+	column therapeutic_area
+		dataType: string
+		lineageTag: 00cef9ad-feb8-4175-aad2-8984d2ab7ebb
+		sourceColumn: therapeutic_area
+
+	column days_in_review_so_far
+		dataType: int64
+		lineageTag: c6aca41d-4880-42d8-9aea-d41480e6f7f1
+		sourceColumn: days_in_review_so_far
+
+	column approval_proba
+		dataType: double
+		lineageTag: 0fd0be54-dffd-4273-9282-7d09f8483ade
+		sourceColumn: approval_proba
+
+	column approval_ci_low
+		dataType: double
+		lineageTag: fe155e01-6f2a-497f-9f67-3d985fc29a9e
+		sourceColumn: approval_ci_low
+
+	column approval_ci_high
+		dataType: double
+		lineageTag: 4ab95e6d-9c10-4566-ae41-ffa7d53faeb2
+		sourceColumn: approval_ci_high
+
+	column est_conclusion_date
+		dataType: dateTime
+		lineageTag: 51060fdd-4846-457b-8724-c1aad32dfa1b
+		sourceColumn: est_conclusion_date
+
+	column conclusion_date_earliest
+		dataType: dateTime
+		lineageTag: 21b68b21-cd18-4e93-81ee-2b02fcfec15b
+		sourceColumn: conclusion_date_earliest
+
+	column conclusion_date_latest
+		dataType: dateTime
+		lineageTag: 8ca539e4-76a1-4289-97b6-2ec651a580d1
+		sourceColumn: conclusion_date_latest
+
+	column remaining_days_p50
+		dataType: double
+		lineageTag: 86ea4b48-87d9-4e31-879b-f61c4e19afde
+		sourceColumn: remaining_days_p50
+
+	column status
+		dataType: string
+		lineageTag: fedabb29-6fe6-4e4a-bc57-43445bb09c2f
+		sourceColumn: status
+
+	column bayes_conclusion_date
+		dataType: dateTime
+		lineageTag: d45a2b3e-04f5-401f-9b1f-2640abeab49d
+		sourceColumn: bayes_conclusion_date
+
+	column bayes_conclusion_earliest
+		dataType: dateTime
+		lineageTag: becc97a0-036a-4677-844e-55f3488e2452
+		sourceColumn: bayes_conclusion_earliest
+
+	column bayes_conclusion_latest
+		dataType: dateTime
+		lineageTag: 7f9ccaba-491b-41a0-b63b-3b94922b8da8
+		sourceColumn: bayes_conclusion_latest
+
+	column bayes_remaining_days_p50
+		dataType: double
+		lineageTag: 5509edd4-defe-4249-a784-1cafcf098d9c
+		sourceColumn: bayes_remaining_days_p50
+
+	column bayes_update_applied
+		dataType: boolean
+		lineageTag: 0996c368-968d-44e4-8b70-c5ac457c6008
+		sourceColumn: bayes_update_applied
+
+	column bayes_note
+		dataType: string
+		lineageTag: 9dc756e6-e7a5-4662-83c6-690cc0397bb5
+		sourceColumn: bayes_note
+
+	column date_accepted
+		dataType: dateTime
+		lineageTag: 5b1756c6-2903-45e0-82d4-fd23fe694b19
+		sourceColumn: date_accepted
+
+	column sk_inflight
+		dataType: string
+		isHidden
+		lineageTag: 5b5aa73d-4359-47db-9de9-06b1846e949f
+		sourceColumn: sk_inflight
+
+	column status_label = SWITCH ( Fact_InFlight[status], "on_track", "Dans les temps", "late", "En retard", "overdue", "Dépassé" )
+		lineageTag: 3f8e2ede-0d07-4e7d-a895-73ae3787bf1f
+		sortByColumn: status_order
+
+	column status_order = SWITCH ( Fact_InFlight[status], "on_track", 1, "late", 2, "overdue", 3 )
+		isHidden
+		lineageTag: 1aefa745-fd1c-4c7e-85e9-8bdbb21da205
+
+	column approval_ci_width = Fact_InFlight[approval_ci_high] - Fact_InFlight[approval_ci_low]
+		lineageTag: 00cda02c-4430-4ac6-bcb9-77df21f22e78
+
+	column is_flagged = Fact_InFlight[approval_proba] < 0.90
+		lineageTag: 73317fc6-55b1-4093-ba7e-df78e486ecd5
+
+	column months_in_review = DIVIDE ( Fact_InFlight[days_in_review_so_far], 30.4 )
+		lineageTag: 1bbaa02e-5197-49de-846f-beb4228def25
+
+	column Re-projeté = Fact_InFlight[bayes_update_applied] = TRUE ()
+		lineageTag: d132c988-ccc6-4fc5-9b4e-13d957365822
+
+	column 'Conclusion affichée' = IF ( Fact_InFlight[status] = "on_track", Fact_InFlight[est_conclusion_date], Fact_InFlight[bayes_conclusion_date] )
+		lineageTag: 2c09e214-fead-49c4-8cc3-e6c556b57579
+
+	column 'Conclusion tôt affichée' = IF ( Fact_InFlight[status] = "on_track", Fact_InFlight[conclusion_date_earliest], Fact_InFlight[bayes_conclusion_earliest] )
+		lineageTag: 453402ed-a9c0-40c9-b3a0-0ba3b36c0562
+
+	column 'Conclusion tard affichée' = IF ( Fact_InFlight[status] = "on_track", Fact_InFlight[conclusion_date_latest], Fact_InFlight[bayes_conclusion_latest] )
+		lineageTag: bfffc628-7663-451c-ab47-88839c9a06a7
+
+	column 'Jours restants affichés' = IF ( Fact_InFlight[status] = "on_track", Fact_InFlight[remaining_days_p50], Fact_InFlight[bayes_remaining_days_p50] )
+		lineageTag: d7514cf5-e082-46c6-a34f-7b32aa2ff92b
+
+	column note_reprojection = SWITCH ( Fact_InFlight[bayes_note], "initial", "—", "reprojected", "Date re-projetée (posterior de survie)", "beyond_model", "Posterior épuisé — pas avant le snapshot", "—" )
+		lineageTag: 428b6190-21d7-4163-9765-58d54fdc607f
+
+	column conclusion_window_days = DATEDIFF ( Fact_InFlight[Conclusion tôt affichée], Fact_InFlight[Conclusion tard affichée], DAY )
+		lineageTag: fbbc2c56-1203-4bb4-8f9e-59a397b1a49f
+
+	partition Fact_InFlight = m
+		mode: import
+		source = let S0 = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\data\processed\under_review_forecast.csv"),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]), P = Table.PromoteHeaders(S0,[PromoteAllScalars=true]), D = Table.AddColumn(P,"accept_date", each Date.FromText(Text.Start([date_accepted],7) & "-01"), type date), K = Table.AddColumn(D,"sk_inflight", each [medicinal_ingredients] & "|" & [company_name] & "|" & [submission_type], type text), R0 = Table.RemoveColumns(K,{"date_accepted"}), N = Table.RenameColumns(R0,{{"accept_date","date_accepted"}}), RN = Table.ReplaceValue(N,"",null,Replacer.ReplaceValue,{"est_conclusion_date","conclusion_date_earliest","conclusion_date_latest","remaining_days_p50","bayes_conclusion_date","bayes_conclusion_earliest","bayes_conclusion_latest","bayes_remaining_days_p50"}), T = Table.TransformColumnTypes(RN,{{"days_in_review_so_far",Int64.Type},{"approval_proba",type number},{"approval_ci_low",type number},{"approval_ci_high",type number},{"est_conclusion_date",type date},{"conclusion_date_earliest",type date},{"conclusion_date_latest",type date},{"remaining_days_p50",type number},{"bayes_conclusion_date",type date},{"bayes_conclusion_earliest",type date},{"bayes_conclusion_latest",type date},{"bayes_remaining_days_p50",type number}}), B = Table.TransformColumns(T,{{"bayes_update_applied", each Text.Upper(Text.From(_)) = "TRUE", type logical}}) in B
+

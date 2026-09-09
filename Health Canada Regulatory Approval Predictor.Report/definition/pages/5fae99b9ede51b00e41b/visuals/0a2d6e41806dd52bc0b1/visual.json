@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0a2d6e41806dd52bc0b1",
+  "position": {
+    "x": 99.38670154872338,
+    "y": 24.539926308326763,
+    "z": 7000,
+    "height": 84.66274576372733,
+    "width": 1053.9898349426344,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Health Canada Submissions Portfolio",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "24pt",
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Snapshot 2026-07-31 · 1,515 concluded submissions, 168 under review",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#b3b3b3"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

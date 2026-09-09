@@ -1,0 +1,49 @@
+table Dim_Driver
+	lineageTag: 2cb6e439-c1fd-46c4-a9f5-e97175e0c660
+
+	column flag
+		dataType: string
+		lineageTag: c2fb420b-f4a1-4749-a3bb-6d395cd6312c
+		sourceColumn: flag
+
+	column n_with
+		dataType: int64
+		lineageTag: d0f51a0b-fb3e-4a3b-bdd1-55f64f33ade7
+		sourceColumn: n_with
+
+	column median_review_days_with
+		dataType: double
+		lineageTag: 22f2eb54-7d03-452f-89b8-ac2c6b8b0063
+		sourceColumn: median_review_days_with
+
+	column median_review_days_without
+		dataType: double
+		lineageTag: 97b741e7-7dd6-48ef-8608-dbccd9995a3c
+		sourceColumn: median_review_days_without
+
+	column approval_rate_with
+		dataType: double
+		lineageTag: 350f727e-68e2-4f24-ae02-4155244d6c92
+		sourceColumn: approval_rate_with
+
+	column approval_rate_without
+		dataType: double
+		lineageTag: 4bea52ad-ed40-4dfb-9e48-220559ddeea9
+		sourceColumn: approval_rate_without
+
+	column delta_review_days = Dim_Driver[median_review_days_with] - Dim_Driver[median_review_days_without]
+		lineageTag: c9acba4d-182b-4bf9-8741-30c18eeae917
+
+	column delta_approval_rate = Dim_Driver[approval_rate_with] - Dim_Driver[approval_rate_without]
+		lineageTag: adcd24ce-2ed4-49db-96ed-5f2a45ab8952
+
+	column flag_label = SWITCH ( Dim_Driver[flag], "priority_review", "Examen prioritaire", "biosimilar", "Biosimilaire", "noc_c", "AC-C (NOC/c)", "project_orbis_a", "Projet Orbis A", "project_orbis_b", "Projet Orbis B", "project_orbis_c", "Projet Orbis C", "access_consortium", "Consortium Access (ACSS)", "hta_aligned", "Aligné ACMTS/INESSS", "covid19", "COVID-19", "is_supplemental", "Supplément (SNDS)", "new_active_substance", "Nouvelle substance active", "third_party_data", "Données de tiers", "extraordinary_use", "Usage exceptionnel", Dim_Driver[flag] )
+		lineageTag: 377f376d-a446-490c-aaeb-9e82ad8f8545
+
+	column effect_direction = IF ( Dim_Driver[delta_review_days] < 0, "Accélère", "Ralentit" )
+		lineageTag: a64e538b-7e11-4cf6-8a18-11241c6a33d8
+
+	partition Dim_Driver = m
+		mode: import
+		source = let S0 = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\reports\feature_effects.csv"),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]), P = Table.PromoteHeaders(S0,[PromoteAllScalars=true]), T = Table.TransformColumnTypes(P,{{"flag",type text},{"n_with",Int64.Type},{"median_review_days_with",type number},{"median_review_days_without",type number},{"approval_rate_with",type number},{"approval_rate_without",type number}}) in T
+

@@ -1,0 +1,36 @@
+relationship Date_Completed
+	fromColumn: Fact_Completed.date_accepted
+	toColumn: Dim_Date.Date
+
+relationship Date_InFlight
+	fromColumn: Fact_InFlight.date_accepted
+	toColumn: Dim_Date.Date
+
+relationship SubType_Completed
+	fromColumn: Fact_Completed.submission_type
+	toColumn: Dim_SubmissionType.submission_type
+
+relationship SubType_InFlight
+	fromColumn: Fact_InFlight.submission_type
+	toColumn: Dim_SubmissionType.submission_type
+
+relationship Area_Completed
+	fromColumn: Fact_Completed.therapeutic_area
+	toColumn: Dim_TherapeuticArea.therapeutic_area
+
+relationship Area_InFlight
+	fromColumn: Fact_InFlight.therapeutic_area
+	toColumn: Dim_TherapeuticArea.therapeutic_area
+
+relationship Company_Completed
+	fromColumn: Fact_Completed.company_name
+	toColumn: Dim_Company.company_name
+
+relationship Company_InFlight
+	fromColumn: Fact_InFlight.company_name
+	toColumn: Dim_Company.company_name
+
+relationship Status_InFlight
+	fromColumn: Fact_InFlight.status
+	toColumn: Dim_Status.status
+

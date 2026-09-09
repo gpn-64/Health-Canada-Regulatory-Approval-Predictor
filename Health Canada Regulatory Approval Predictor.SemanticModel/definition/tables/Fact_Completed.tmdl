@@ -1,0 +1,213 @@
+table Fact_Completed
+	lineageTag: 928ce098-b3d2-4459-a595-c03be1dfb430
+
+	column control_number
+		dataType: string
+		isHidden
+		lineageTag: c3578120-4225-4d06-84db-778069454ee6
+		sourceColumn: control_number
+
+	column predicted_review_days
+		dataType: double
+		lineageTag: 7dd6b8f7-6ce3-4238-b694-07f860f7bcb5
+		sourceColumn: predicted_review_days
+
+	column review_days_p10
+		dataType: double
+		lineageTag: dc0ffd19-d0a6-4639-b605-cc909259d28c
+		sourceColumn: review_days_p10
+
+	column review_days_p50
+		dataType: double
+		lineageTag: e729236e-cf76-4baf-815d-6d2466d04dd7
+		sourceColumn: review_days_p50
+
+	column review_days_p90
+		dataType: double
+		lineageTag: cd2fa5d3-0cc4-48c3-a09d-c11784ca7318
+		sourceColumn: review_days_p90
+
+	column predicted_approval_proba
+		dataType: double
+		lineageTag: 331f8712-80dd-4a44-80a9-0f061eba1760
+		sourceColumn: predicted_approval_proba
+
+	column predicted_conclusion_date
+		dataType: dateTime
+		lineageTag: 0b7f6c1f-c934-41a5-b530-290ad2e5a920
+		sourceColumn: predicted_conclusion_date
+
+	column conclusion_date_p10
+		dataType: dateTime
+		lineageTag: c2793de6-2785-42fb-acbb-edc5e8e8c700
+		sourceColumn: conclusion_date_p10
+
+	column conclusion_date_p90
+		dataType: dateTime
+		lineageTag: c24fe6b8-8010-479f-a8b4-19ba8ec38c14
+		sourceColumn: conclusion_date_p90
+
+	column review_days_residual
+		dataType: double
+		lineageTag: 8e8bc25e-6202-4b89-8c19-069d4f3e9049
+		sourceColumn: review_days_residual
+
+	column actual_review_days
+		dataType: int64
+		lineageTag: b017b611-34cb-436c-b738-547e841f75fb
+		sourceColumn: actual_review_days
+
+	column actual_approved
+		dataType: int64
+		lineageTag: 88c9882a-8352-4bf4-8b7b-e266dcf80171
+		sourceColumn: actual_approved
+
+	column medicinal_ingredients
+		dataType: string
+		lineageTag: 3b7d69fa-a592-4df8-b7f8-e0874d88ecd9
+		sourceColumn: medicinal_ingredients
+
+	column company_name
+		dataType: string
+		lineageTag: 41889ab5-7b2d-4032-b85e-85e123fc8470
+		sourceColumn: company_name
+
+	column therapeutic_area
+		dataType: string
+		lineageTag: 60985a32-d570-440f-a92b-82bc0818a4ab
+		sourceColumn: therapeutic_area
+
+	column submission_type
+		dataType: string
+		lineageTag: 115755c3-1648-48b6-995b-7f70097d0960
+		sourceColumn: submission_type
+
+	column is_supplemental
+		dataType: int64
+		lineageTag: d34c052e-84d9-4fac-9bd5-19ce66641d6b
+		sourceColumn: is_supplemental
+
+	column date_accepted
+		dataType: dateTime
+		lineageTag: 5229784a-ffdf-4a52-989e-aab0c644f846
+		sourceColumn: date_accepted
+
+	column extraordinary_use
+		dataType: int64
+		lineageTag: 80993ebf-b2f1-4065-b4da-04fc313f2a64
+		sourceColumn: extraordinary_use
+
+	column new_active_substance
+		dataType: int64
+		lineageTag: 2b932412-0f4a-452c-8b5c-223bfd491206
+		sourceColumn: new_active_substance
+
+	column biosimilar
+		dataType: int64
+		lineageTag: 0645cfa6-fc37-4f6f-aac5-1b2526579d28
+		sourceColumn: biosimilar
+
+	column priority_review
+		dataType: int64
+		lineageTag: 8b74f3d5-cdde-45b4-a033-7c72a9ff5c36
+		sourceColumn: priority_review
+
+	column noc_c
+		dataType: int64
+		lineageTag: c711aeba-8bb4-448c-94b3-97f4c67ebb6a
+		sourceColumn: noc_c
+
+	column third_party_data
+		dataType: int64
+		lineageTag: a4ad71bf-ba6d-4c1c-98d6-3653d653590d
+		sourceColumn: third_party_data
+
+	column hta_aligned
+		dataType: int64
+		lineageTag: edbc2dce-0faa-4004-a66d-111a03496e31
+		sourceColumn: hta_aligned
+
+	column covid19
+		dataType: int64
+		lineageTag: 4d514498-fef6-499f-86d6-b61d27a2a2d1
+		sourceColumn: covid19
+
+	column project_orbis_a
+		dataType: int64
+		lineageTag: 8eea8090-d343-4d3b-91a6-18dd058f7896
+		sourceColumn: project_orbis_a
+
+	column project_orbis_b
+		dataType: int64
+		lineageTag: 6cceecfb-a012-48b4-a971-fa084d73856f
+		sourceColumn: project_orbis_b
+
+	column project_orbis_c
+		dataType: int64
+		lineageTag: 43376d01-8da8-43ca-a1e2-acc0cea2499e
+		sourceColumn: project_orbis_c
+
+	column access_consortium
+		dataType: int64
+		lineageTag: 49c11b65-afa7-4ff5-b341-2e0c158d1d44
+		sourceColumn: access_consortium
+
+	column outcome
+		dataType: string
+		lineageTag: bdd8f588-cfdb-4551-bfb2-a31ec01e725f
+		sourceColumn: outcome
+
+	column date_concluded
+		dataType: dateTime
+		lineageTag: 1cc97f74-d1cb-4d5a-8136-52a3ef649f3f
+		sourceColumn: date_concluded
+
+	column accept_year
+		dataType: int64
+		lineageTag: 1098bd18-f7c8-4b22-a9d4-af42fc10d5f6
+		sourceColumn: accept_year
+
+	column accept_month
+		dataType: int64
+		lineageTag: 7439c88c-18fd-4c50-9737-c6756c43e428
+		sourceColumn: accept_month
+
+	column accept_quarter
+		dataType: int64
+		lineageTag: 2d630511-986c-436b-9359-40c2a198e6eb
+		sourceColumn: accept_quarter
+
+	column n_ingredients
+		dataType: int64
+		lineageTag: 92994255-c8da-4f43-8692-e5ba74c75fe9
+		sourceColumn: n_ingredients
+
+	column review_days
+		dataType: int64
+		lineageTag: eea50fe4-855c-46bd-9a54-87b82cbd8fcd
+		sourceColumn: review_days
+
+	column approved
+		dataType: int64
+		lineageTag: afe93c48-f8c8-48e0-91f5-9a7ee2b59b7b
+		sourceColumn: approved
+
+	column review_years = DIVIDE ( Fact_Completed[review_days], 365.25 )
+		lineageTag: d86122eb-fd08-4692-a97e-4bc61095f35c
+
+	column is_long_tail = Fact_Completed[review_days] > 700
+		lineageTag: 7b265505-493b-483e-885d-b9957f8a952c
+
+	column abs_residual = ABS ( Fact_Completed[review_days_residual] )
+		lineageTag: 8b11b4e5-6d00-4411-a8d6-5836fffe8baa
+
+	column in_p10_p90 = Fact_Completed[actual_review_days] >= Fact_Completed[review_days_p10] && Fact_Completed[actual_review_days] <= Fact_Completed[review_days_p90]
+		lineageTag: e8d4cf6d-560e-4954-9029-a6941f7790a4
+
+	column proba_bin = FLOOR ( Fact_Completed[predicted_approval_proba], 0.05 )
+		lineageTag: bd4161f8-6121-49c7-a7fa-9275053f754c
+
+	partition Fact_Completed = m
+		mode: import
+		source = let Src = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\data\processed\predictions.csv"),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]), P = Table.PromoteHeaders(Src,[PromoteAllScalars=true]), C = Table.SelectRows(P, each [dataset] = "completed"), Pc = Table.SelectColumns(C,{"control_number","predicted_review_days","review_days_p10","review_days_p50","review_days_p90","predicted_approval_proba","predicted_conclusion_date","conclusion_date_p10","conclusion_date_p90","review_days_residual","actual_review_days","actual_approved"}), S0 = Csv.Document(File.Contents("C:\Users\User\Documents\Coding Projects\Health-Canada-Regulatory-Approval-Predictor\data\processed\submissions_clean.csv"),[Delimiter=",",Encoding=65001,QuoteStyle=QuoteStyle.Csv]), S = Table.PromoteHeaders(S0,[PromoteAllScalars=true]), J = Table.NestedJoin(Pc,{"control_number"},S,{"control_number"},"s",JoinKind.Inner), E = Table.ExpandTableColumn(J,"s",{"medicinal_ingredients","company_name","therapeutic_area","submission_type","is_supplemental","date_accepted","extraordinary_use","new_active_substance","biosimilar","priority_review","noc_c","third_party_data","hta_aligned","covid19","project_orbis_a","project_orbis_b","project_orbis_c","access_consortium","outcome","date_concluded","accept_year","accept_month","accept_quarter","n_ingredients","review_days","approved"}), RN = Table.ReplaceValue(E,"",null,Replacer.ReplaceValue,{"predicted_conclusion_date","conclusion_date_p10","conclusion_date_p90","review_days_residual","actual_review_days","actual_approved","date_concluded"}), T = Table.TransformColumnTypes(RN,{{"predicted_review_days",type number},{"review_days_p10",type number},{"review_days_p50",type number},{"review_days_p90",type number},{"predicted_approval_proba",type number},{"predicted_conclusion_date",type date},{"conclusion_date_p10",type date},{"conclusion_date_p90",type date},{"review_days_residual",type number},{"actual_review_days",Int64.Type},{"actual_approved",Int64.Type},{"date_accepted",type date},{"date_concluded",type date},{"is_supplemental",Int64.Type},{"extraordinary_use",Int64.Type},{"new_active_substance",Int64.Type},{"biosimilar",Int64.Type},{"priority_review",Int64.Type},{"noc_c",Int64.Type},{"third_party_data",Int64.Type},{"hta_aligned",Int64.Type},{"covid19",Int64.Type},{"project_orbis_a",Int64.Type},{"project_orbis_b",Int64.Type},{"project_orbis_c",Int64.Type},{"access_consortium",Int64.Type},{"accept_year",Int64.Type},{"accept_month",Int64.Type},{"accept_quarter",Int64.Type},{"n_ingredients",Int64.Type},{"review_days",Int64.Type},{"approved",Int64.Type}}) in T
+

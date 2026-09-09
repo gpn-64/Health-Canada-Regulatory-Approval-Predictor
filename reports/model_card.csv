@@ -1,0 +1,8 @@
+metric,scope,label,value,baseline,unit,better,page_order
+mae,regressor,MAE délai (jours),77,97,days,lower,1
+median_ae,regressor,Erreur médiane délai (jours),19,,days,lower,2
+interval_coverage,regressor,Couverture intervalle p10–p90,0.81,0.80,ratio,target,3
+roc_auc,classifier,ROC-AUC approbation,0.66,0.50,ratio,higher,4
+brier,classifier,Score de Brier,0.076,0.078,ratio,lower,5
+calibration,classifier,Probabilité moyenne prévue vs observée,0.911,0.913,ratio,target,6
+reprojection_coverage,reprojection,Couverture re-projection late/overdue (holdout temporel),0.74,0.80,ratio,target,7
