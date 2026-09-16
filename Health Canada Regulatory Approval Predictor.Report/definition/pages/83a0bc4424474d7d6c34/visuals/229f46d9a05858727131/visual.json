@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "0a2d6e41806dd52bc0b1",
+  "name": "229f46d9a05858727131",
   "position": {
-    "x": 99.8766954377312,
-    "y": 26.633785450061655,
-    "z": 7000,
-    "height": 85.228113440197291,
-    "width": 1053.3662145499384,
-    "tabOrder": 7000
+    "x": 99.1616766467066,
+    "y": 24.4311377245509,
+    "z": 0,
+    "height": 84.790419161676652,
+    "width": 1053.4131736526947,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Health Canada Submissions Portfolio",
+                    "value": "Predictions for Submissions Under Review",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "24pt",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Snapshot 2026-07-31 · 1,515 concluded submissions, 168 under review",
+                    "value": "168 submissions · snapshot 2026-07-31 · 38 need attention",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#b3b3b3"

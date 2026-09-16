@@ -243,6 +243,13 @@
                   "Value": "'Δ median review time with / without the flag · 8 of 13 flags'"
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
             }
           }
         }
@@ -359,6 +366,21 @@
           }
         },
         "type": "TopN",
+        "howCreated": "User"
+      },
+      {
+        "name": "59b35c3d7dd005212c9b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Driver"
+              }
+            },
+            "Property": "flag"
+          }
+        },
+        "type": "TopN",
         "filter": {
           "Version": 2,
           "From": [
@@ -370,13 +392,8 @@
                     "Version": 2,
                     "From": [
                       {
-                        "Name": "f",
-                        "Entity": "Fact_Completed",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "_",
-                        "Entity": "_Mesures",
+                        "Name": "d",
+                        "Entity": "Dim_Driver",
                         "Type": 0
                       }
                     ],
@@ -385,38 +402,43 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Source": "f"
+                              "Source": "d"
                             }
                           },
-                          "Property": "therapeutic_area"
+                          "Property": "flag"
                         },
                         "Name": "field"
                       }
                     ],
                     "OrderBy": [
                       {
-                        "Direction": 2,
+                        "Direction": 1,
                         "Expression": {
-                          "Measure": {
+                          "Aggregation": {
                             "Expression": {
-                              "SourceRef": {
-                                "Source": "_"
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "delta_review_days"
                               }
                             },
-                            "Property": "Nb approuvées"
+                            "Function": 0
                           }
                         }
                       }
                     ],
-                    "Top": 10
+                    "Top": 8
                   }
                 }
               },
               "Type": 2
             },
             {
-              "Name": "f",
-              "Entity": "Fact_Completed",
+              "Name": "d",
+              "Entity": "Dim_Driver",
               "Type": 0
             }
           ],
@@ -429,10 +451,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "f"
+                            "Source": "d"
                           }
                         },
-                        "Property": "therapeutic_area"
+                        "Property": "flag"
                       }
                     }
                   ],
@@ -445,8 +467,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

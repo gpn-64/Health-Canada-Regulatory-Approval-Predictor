@@ -182,7 +182,21 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'TopRight'"
+                  "Value": "'Top'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
                 }
               }
             }
@@ -255,6 +269,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Δ median review time with / without the flag · 8 of 13 flags'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }
@@ -362,6 +383,7 @@
     "filters": [
       {
         "name": "5e2e51549cba61c3b972",
+        "ordinal": 4,
         "field": {
           "Column": {
             "Expression": {
@@ -462,6 +484,7 @@
         },
         "howCreated": "User"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

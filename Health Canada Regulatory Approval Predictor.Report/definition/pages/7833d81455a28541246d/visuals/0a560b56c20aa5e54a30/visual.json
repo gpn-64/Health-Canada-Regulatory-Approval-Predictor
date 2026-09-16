@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "acb24c6790844173ae62",
+  "name": "0a560b56c20aa5e54a30",
   "position": {
-    "x": 43.113772455089823,
-    "y": 573.41317365269458,
-    "z": 9000,
-    "height": 296.04790419161679,
-    "width": 589.22155688622752,
-    "tabOrder": 9000
+    "x": 35.928143712574851,
+    "y": 589.22155688622752,
+    "z": 2001,
+    "height": 452.69461077844312,
+    "width": 912.57485029940119,
+    "tabOrder": 2001
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,33 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact_Completed"
+                      "Entity": "Dim_Shap"
                     }
                   },
-                  "Property": "therapeutic_area"
+                  "Property": "feature"
                 }
               },
-              "queryRef": "Fact_Completed.therapeutic_area",
-              "nativeQueryRef": "therapeutic_area",
+              "queryRef": "Dim_Shap.feature",
+              "nativeQueryRef": "feature",
               "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Shap"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "Dim_Shap.model",
+              "nativeQueryRef": "model"
             }
           ]
         },
@@ -36,17 +54,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Mesures"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim_Shap"
+                        }
+                      },
+                      "Property": "mean_abs_shap"
                     }
                   },
-                  "Property": "Nb soumissions"
+                  "Function": 0
                 }
               },
-              "queryRef": "_Mesures.Nb soumissions",
-              "nativeQueryRef": "Nb soumissions"
+              "queryRef": "Sum(Dim_Shap.mean_abs_shap)",
+              "nativeQueryRef": "Sum of mean_abs_shap"
             }
           ]
         }
@@ -55,13 +78,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Mesures"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim_Shap"
+                      }
+                    },
+                    "Property": "mean_abs_shap"
                   }
                 },
-                "Property": "Nb soumissions"
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -71,74 +99,6 @@
       }
     },
     "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "maxMarginFactor": {
-              "expr": {
-                "Literal": {
-                  "Value": "33L"
-                }
-              }
-            },
-            "concatenateLabels": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "innerPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "49L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "dataPoint": [
         {
           "properties": {
@@ -147,7 +107,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 4,
                       "Percent": 0
                     }
                   }
@@ -156,37 +116,34 @@
             }
           },
           "selector": {
-            "metadata": "_Mesures.Taux d'approbation"
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'TopRight'"
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dim_Shap"
+                          }
+                        },
+                        "Property": "model"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'classifier'"
+                      }
+                    }
+                  }
                 }
               }
-            }
+            ]
           }
         }
       ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "ribbonBands": [
+      "valueAxis": [
         {
           "properties": {
             "show": {
@@ -207,14 +164,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Oncology accounts for 28% of volume'"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Priority review dominates the time model; acceptance year dominates approval'"
                 }
               }
             },
@@ -238,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 therapeutic areas'"
+                  "Value": "'Mean |SHAP| importance, normalized per model, Top 8'"
                 }
               }
             },
@@ -325,26 +275,6 @@
             }
           }
         }
-      ],
-      "spacing": [
-        {
-          "properties": {
-            "spaceAbovePlotArea": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "spaceAboveSubtitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -352,15 +282,34 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5e2e51549cba61c3b972",
+        "name": "ae4fb77e4d7eaa16abaa",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Shap"
+                  }
+                },
+                "Property": "mean_abs_shap"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "16e778bd349ed32667d0",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Fact_Completed"
+                "Entity": "Dim_Shap"
               }
             },
-            "Property": "therapeutic_area"
+            "Property": "feature"
           }
         },
         "type": "TopN",
@@ -375,13 +324,8 @@
                     "Version": 2,
                     "From": [
                       {
-                        "Name": "f",
-                        "Entity": "Fact_Completed",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "_",
-                        "Entity": "_Mesures",
+                        "Name": "d",
+                        "Entity": "Dim_Shap",
                         "Type": 0
                       }
                     ],
@@ -390,10 +334,10 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Source": "f"
+                              "Source": "d"
                             }
                           },
-                          "Property": "therapeutic_area"
+                          "Property": "feature"
                         },
                         "Name": "field"
                       }
@@ -402,26 +346,31 @@
                       {
                         "Direction": 2,
                         "Expression": {
-                          "Measure": {
+                          "Aggregation": {
                             "Expression": {
-                              "SourceRef": {
-                                "Source": "_"
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "mean_abs_shap"
                               }
                             },
-                            "Property": "Nb approuvées"
+                            "Function": 0
                           }
                         }
                       }
                     ],
-                    "Top": 10
+                    "Top": 8
                   }
                 }
               },
               "Type": 2
             },
             {
-              "Name": "f",
-              "Entity": "Fact_Completed",
+              "Name": "d",
+              "Entity": "Dim_Shap",
               "Type": 0
             }
           ],
@@ -434,10 +383,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "f"
+                            "Source": "d"
                           }
                         },
-                        "Property": "therapeutic_area"
+                        "Property": "feature"
                       }
                     }
                   ],
@@ -451,6 +400,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "2cd13f4d0351b120c53b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Shap"
+              }
+            },
+            "Property": "model"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

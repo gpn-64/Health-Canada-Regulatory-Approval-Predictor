@@ -31,6 +31,8 @@ table Fact_InFlight
 		lineageTag: 0fd0be54-dffd-4273-9282-7d09f8483ade
 		sourceColumn: approval_proba
 
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Fact_InFlight","TableItemName":"approval_proba (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
 	column approval_ci_low
 		dataType: double
 		lineageTag: fe155e01-6f2a-497f-9f67-3d985fc29a9e
@@ -43,8 +45,11 @@ table Fact_InFlight
 
 	column est_conclusion_date
 		dataType: dateTime
+		formatString: yyyy-mm
 		lineageTag: 51060fdd-4846-457b-8724-c1aad32dfa1b
 		sourceColumn: est_conclusion_date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column conclusion_date_earliest
 		dataType: dateTime
@@ -58,6 +63,7 @@ table Fact_InFlight
 
 	column remaining_days_p50
 		dataType: double
+		formatString: 0
 		lineageTag: 86ea4b48-87d9-4e31-879b-f61c4e19afde
 		sourceColumn: remaining_days_p50
 
@@ -98,8 +104,11 @@ table Fact_InFlight
 
 	column date_accepted
 		dataType: dateTime
+		formatString: yyyy-mm
 		lineageTag: 5b1756c6-2903-45e0-82d4-fd23fe694b19
 		sourceColumn: date_accepted
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column sk_inflight
 		dataType: string
@@ -144,6 +153,57 @@ table Fact_InFlight
 
 	column conclusion_window_days = DATEDIFF ( Fact_InFlight[Conclusion tôt affichée], Fact_InFlight[Conclusion tard affichée], DAY )
 		lineageTag: fbbc2c56-1203-4bb4-8f9e-59a397b1a49f
+
+	column 'approval_proba (bins)' = ```
+			VAR __Count = 10
+			
+			VAR __Min = MIN('Fact_InFlight'[approval_proba])
+			
+			VAR __Max = MAX('Fact_InFlight'[approval_proba])
+			
+			VAR __Difference = (__Max - __Min)
+			
+			VAR __Size = IF(__Difference > 0, __Difference / __Count, 1)
+			
+			VAR __BinNumber = 
+				IF(
+					ISBLANK('Fact_InFlight'[approval_proba]),
+					BLANK(),
+					ROUNDDOWN(('Fact_InFlight'[approval_proba] - __Min) / __Size, 0)
+				)
+			
+			RETURN
+				IF(
+					ISBLANK('Fact_InFlight'[approval_proba]),
+					BLANK(),
+					__Min + (MIN(__BinNumber, __Count - 1) * __Size)
+				)
+			```
+		lineageTag: fc5cd80b-b1f6-411e-a878-452a529c73fc
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Fact_InFlight"
+				          }
+				        },
+				        "Property": "approval_proba"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"f","Entity":"Fact_InFlight"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"approval_proba"}}],"BinItem":{"Expression":{"Member":{"Expression":{"Discretize":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"approval_proba"}},"Count":10}},"Member":"Min"}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Fact_InFlight = m
 		mode: import

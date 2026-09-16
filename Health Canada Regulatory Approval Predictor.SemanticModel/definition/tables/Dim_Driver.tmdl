@@ -23,11 +23,13 @@ table Dim_Driver
 
 	column approval_rate_with
 		dataType: double
+		formatString: 0%;-0%;0%
 		lineageTag: 350f727e-68e2-4f24-ae02-4155244d6c92
 		sourceColumn: approval_rate_with
 
 	column approval_rate_without
 		dataType: double
+		formatString: 0%;-0%;0%
 		lineageTag: 4bea52ad-ed40-4dfb-9e48-220559ddeea9
 		sourceColumn: approval_rate_without
 
@@ -35,6 +37,7 @@ table Dim_Driver
 		lineageTag: c9acba4d-182b-4bf9-8741-30c18eeae917
 
 	column delta_approval_rate = Dim_Driver[approval_rate_with] - Dim_Driver[approval_rate_without]
+		formatString: 0%;-0%;0%
 		lineageTag: adcd24ce-2ed4-49db-96ed-5f2a45ab8952
 
 	column flag_label = SWITCH ( Dim_Driver[flag], "priority_review", "Examen prioritaire", "biosimilar", "Biosimilaire", "noc_c", "AC-C (NOC/c)", "project_orbis_a", "Projet Orbis A", "project_orbis_b", "Projet Orbis B", "project_orbis_c", "Projet Orbis C", "access_consortium", "Consortium Access (ACSS)", "hta_aligned", "Aligné ACMTS/INESSS", "covid19", "COVID-19", "is_supplemental", "Supplément (SNDS)", "new_active_substance", "Nouvelle substance active", "third_party_data", "Données de tiers", "extraordinary_use", "Usage exceptionnel", Dim_Driver[flag] )

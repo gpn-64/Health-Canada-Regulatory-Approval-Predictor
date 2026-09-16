@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "23e5cc05ddd41b626ead",
+  "position": {
+    "x": 44.550898203592816,
+    "y": 1017.4850299401198,
+    "z": 9001,
+    "height": 47.4251497005988,
+    "width": 1845.2694610778444,
+    "tabOrder": 9001
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Indicative model, review time: median error ≈ 19 d, MAE 77 d; approval: ROC-AUC 0.66, calibrated probabilities (0.91 predicted vs 0.91 observed). The p10–p90 intervals miss ~90% of reviews running past 700 d. Late / overdue files carry a ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#98a5b2"
+                    }
+                  },
+                  {
+                    "value": "re-projected",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#98a5b2"
+                    }
+                  },
+                  {
+                    "value": " date (survival-conditioned posterior, calibrated on a temporal holdout: p10–p90 coverage ≈ 74%) informed, but not a calibrated p90. Source: Health Canada, ",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#98a5b2"
+                    }
+                  },
+                  {
+                    "value": "Submissions under review",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "10pt",
+                      "color": "#98a5b2"
+                    }
+                  },
+                  {
+                    "value": ", snapshot 2026-07-31. No automatic refresh in V1.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#98a5b2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

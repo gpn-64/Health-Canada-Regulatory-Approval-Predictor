@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "0a2d6e41806dd52bc0b1",
+  "name": "0fa123cde26b5801b866",
   "position": {
-    "x": 99.8766954377312,
-    "y": 26.633785450061655,
-    "z": 7000,
-    "height": 85.228113440197291,
-    "width": 1053.3662145499384,
-    "tabOrder": 7000
+    "x": 54.610778443113773,
+    "y": 889.5808383233533,
+    "z": 13000,
+    "height": 86.227544910179645,
+    "width": 324.79041916167665,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Health Canada Submissions Portfolio",
+                    "value": "The model beats the deadline without crushing it",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "24pt",
+                      "fontSize": "12pt",
                       "color": "#ffffff"
                     }
                   }
@@ -31,18 +31,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Snapshot 2026-07-31 · 1,515 concluded submissions, 168 under review",
+                    "value": "Test set, target = baseline",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#b3b3b3"
                     }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": ""
                   }
                 ]
               }

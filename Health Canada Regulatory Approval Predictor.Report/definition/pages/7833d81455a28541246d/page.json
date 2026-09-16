@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "5fae99b9ede51b00e41b",
-  "displayName": "Portfolio",
+  "name": "7833d81455a28541246d",
+  "displayName": "Drivers",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
@@ -14,7 +14,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'P1-portfolio.png'"
+                    "Value": "'P3-drivers.png'"
                   }
                 }
               },
@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "P1-portfolio8663363702602236.png"
+                    "ItemName": "P3-drivers2281423367852834.png"
                   }
                 }
               },

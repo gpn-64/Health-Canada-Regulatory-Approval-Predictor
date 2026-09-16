@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "4be2b722ce4000cb0a52",
+  "name": "5db04449e8226969e287",
   "position": {
-    "x": 1131.2906028138636,
-    "y": 262.57721149909634,
-    "z": 8000,
-    "height": 285.89014149200676,
-    "width": 744.78676345771726,
-    "tabOrder": 8000
+    "x": 1286.2275449101796,
+    "y": 661.07784431137725,
+    "z": 9000,
+    "height": 324.79041916167665,
+    "width": 592.09580838323359,
+    "tabOrder": 9000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim_Date"
+                      "Entity": "Fact_InFlight"
                     }
                   },
-                  "Property": "Année"
+                  "Property": "approval_proba (bins)"
                 }
               },
-              "queryRef": "Dim_Date.Année",
-              "nativeQueryRef": "Année",
+              "queryRef": "Fact_InFlight.approval_proba (bins)",
+              "nativeQueryRef": "approval_proba (bins)",
               "active": true
             }
           ]
@@ -36,17 +36,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Mesures"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fact_InFlight"
+                        }
+                      },
+                      "Property": "medicinal_ingredients"
                     }
                   },
-                  "Property": "Délai médian (j)"
+                  "Function": 5
                 }
               },
-              "queryRef": "_Mesures.Délai médian (j)",
-              "nativeQueryRef": "Délai médian (j)"
+              "queryRef": "CountNonNull(Fact_InFlight.medicinal_ingredients)",
+              "nativeQueryRef": "medicinal_ingredients"
             }
           ]
         }
@@ -55,13 +60,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Mesures"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Fact_InFlight"
+                      }
+                    },
+                    "Property": "medicinal_ingredients"
                   }
                 },
-                "Property": "Délai médian (j)"
+                "Function": 5
               }
             },
             "direction": "Descending"
@@ -71,92 +81,6 @@
       }
     },
     "objects": {
-      "categoryAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "strokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'linear'"
-                }
-              }
-            },
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "markerColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "areaShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "dataPoint": [
         {
           "properties": {
@@ -165,7 +89,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 6,
                       "Percent": 0
                     }
                   }
@@ -174,56 +98,152 @@
             }
           },
           "selector": {
-            "metadata": "_Mesures.Taux d'approbation"
-          }
-        }
-      ],
-      "markers": [
-        {
-          "properties": {
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Fact_InFlight"
+                          }
+                        },
+                        "Property": "status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'late'"
+                      }
+                    }
+                  }
                 }
               }
-            },
-            "borderColor": {
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 5,
                       "Percent": 0
                     }
                   }
                 }
               }
-            },
-            "borderWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Fact_InFlight"
+                          }
+                        },
+                        "Property": "status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'on_track'"
+                      }
+                    }
+                  }
                 }
               }
-            }
+            ]
           }
-        }
-      ],
-      "legend": [
+        },
         {
           "properties": {
-            "position": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Fact_InFlight"
+                          }
+                        },
+                        "Property": "status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'overdue'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "'TopRight'"
+                  "Value": "false"
+                }
+              }
+            },
+            "titleFontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "titleFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
           }
         }
       ],
-      "seriesLabels": [
+      "valueAxis": [
         {
           "properties": {
             "show": {
@@ -242,105 +262,92 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
           }
         }
       ],
-      "error": [
+      "xAxisReferenceLine": [
         {
           "properties": {
-            "errorRange": {
-              "kind": "ErrorRange",
-              "explicit": {
-                "isRelative": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'treshold'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "0.9D"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "false"
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
                     }
                   }
-                },
-                "lowerBound": {
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "dataLabelHorizontalPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'right'"
+                }
+              }
+            },
+            "dataLabelColor": {
+              "solid": {
+                "color": {
                   "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Mesures"
-                        }
-                      },
-                      "Property": "Délai p10 (j)"
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
                     }
                   }
-                },
-                "upperBound": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Mesures"
-                        }
-                      },
-                      "Property": "Délai p90 (j)"
-                    }
-                  }
+                }
+              }
+            },
+            "dataLabelText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ValueAndName'"
                 }
               }
             }
           },
           "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Mesures.Délai médian (j)",
-            "highlightMatching": 1
-          }
-        },
-        {
-          "properties": {
-            "enabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "shadeShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "barShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "markerShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "shadeTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "82D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Mesures.Délai médian (j)"
+            "id": "1"
           }
         }
       ]
@@ -352,14 +359,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Median review time stays anchored near 300 d'"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Overdue files cluster on the right of the chart'"
                 }
               }
             },
@@ -383,7 +383,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Review time by acceptance year · band = p10–p90 · the spread is what moves'"
+                  "Value": "'Days in review × P(approval)'"
                 }
               }
             },

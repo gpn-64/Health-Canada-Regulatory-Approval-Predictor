@@ -35,56 +35,6 @@
           }
         },
         "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "Dim_Date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "Année"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2027L"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "2026L"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User",
         "objects": {
           "general": [
@@ -154,9 +104,24 @@
           "type": "Image"
         },
         {
+          "name": "P2-predictions1695211255108633.png",
+          "path": "P2-predictions1695211255108633.png",
+          "type": "Image"
+        },
+        {
+          "name": "P3-drivers2281423367852834.png",
+          "path": "P3-drivers2281423367852834.png",
+          "type": "Image"
+        },
+        {
           "name": "Submissions_Dashboard___Dark5778018897198036.json",
           "path": "Submissions_Dashboard___Dark5778018897198036.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "White_maple_leaf_symbol7774103158362892.png",
+          "path": "White_maple_leaf_symbol7774103158362892.png",
+          "type": "Image"
         }
       ]
     }

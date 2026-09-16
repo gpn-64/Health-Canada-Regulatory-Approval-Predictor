@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "0a2d6e41806dd52bc0b1",
+  "name": "e62d3db9a582424b2dd3",
   "position": {
-    "x": 99.8766954377312,
-    "y": 26.633785450061655,
-    "z": 7000,
-    "height": 85.228113440197291,
-    "width": 1053.3662145499384,
-    "tabOrder": 7000
+    "x": 455.13173618738728,
+    "y": 902.51497005988028,
+    "z": 16000,
+    "height": 48.8622754491018,
+    "width": 165.26946107784431,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,32 +19,26 @@
               {
                 "textRuns": [
                   {
-                    "value": "Health Canada Submissions Portfolio",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "24pt",
-                      "color": "#ffffff"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Snapshot 2026-07-31 · 1,515 concluded submissions, 168 under review",
+                    "value": "Review-time MAE: ",
                     "textStyle": {
                       "fontSize": "11pt",
                       "color": "#b3b3b3"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "right"
               },
               {
                 "textRuns": [
                   {
-                    "value": ""
+                    "value": "(lower is better): ",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#b3b3b3"
+                    }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "right"
               }
             ]
           }
