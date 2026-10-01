@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "0a560b56c20aa5e54a30",
   "position": {
     "x": 35.928143712574851,
     "y": 589.22155688622752,
-    "z": 2001,
+    "z": 3000,
     "height": 452.69461077844312,
     "width": 912.57485029940119,
-    "tabOrder": 2001
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -282,25 +282,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "ae4fb77e4d7eaa16abaa",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim_Shap"
-                  }
-                },
-                "Property": "mean_abs_shap"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "16e778bd349ed32667d0",
         "field": {
           "Column": {
@@ -400,20 +381,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "2cd13f4d0351b120c53b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Shap"
-              }
-            },
-            "Property": "model"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
