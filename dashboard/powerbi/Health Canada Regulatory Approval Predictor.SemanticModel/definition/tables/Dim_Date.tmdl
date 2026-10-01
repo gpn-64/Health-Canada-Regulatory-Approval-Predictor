@@ -11,33 +11,27 @@ table Dim_Date
 
 	column Année
 		lineageTag: 8da06397-fc17-47f5-91a4-97dfc3c0ea62
-		isNameInferred
 		sourceColumn: [Année]
 
 	column 'N° mois'
 		lineageTag: a8d2ff08-4baa-4a0b-b855-595066041391
-		isNameInferred
 		sourceColumn: [N° mois]
 
 	column Mois
 		lineageTag: 64dc8dad-f941-41bd-a1ba-3cd70abf89b7
-		isNameInferred
 		sourceColumn: [Mois]
 		sortByColumn: 'N° mois'
 
 	column Année-Mois
 		lineageTag: 61eedef0-5cb7-4cf5-9d53-48605521580a
-		isNameInferred
 		sourceColumn: [Année-Mois]
 
 	column Trimestre
 		lineageTag: 28c251f2-f1af-47ab-bae8-94b111e0ffb0
-		isNameInferred
 		sourceColumn: [Trimestre]
 
 	column 'Début de mois'
 		lineageTag: 31127b9b-fc1e-476b-aeb2-53d05c7b8fbe
-		isNameInferred
 		sourceColumn: [Début de mois]
 
 	partition Dim_Date = calculated

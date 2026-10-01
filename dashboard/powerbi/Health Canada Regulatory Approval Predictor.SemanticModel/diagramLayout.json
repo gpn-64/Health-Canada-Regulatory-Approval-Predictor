@@ -74,19 +74,6 @@
         },
         {
           "location": {
-            "x": 126.93266870474977,
-            "y": 634.16756535265688
-          },
-          "nodeIndex": "_Mesures",
-          "nodeLineageTag": "8bf439c8-821b-47f2-a2d4-21b676e782df",
-          "size": {
-            "height": 672.10045202468348,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 965.42801094128845,
             "y": 288.99978203272326
           },
@@ -146,6 +133,19 @@
           "nodeLineageTag": "94353746-0c7e-4159-ae84-8e6cf622bfdd",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 126.93266870474977,
+            "y": 634.16756535265688
+          },
+          "nodeIndex": "_Mesures",
+          "nodeLineageTag": "8bf439c8-821b-47f2-a2d4-21b676e782df",
+          "size": {
+            "height": 672.10045202468348,
             "width": 234
           },
           "zIndex": 0
